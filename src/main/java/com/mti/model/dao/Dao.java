@@ -9,48 +9,36 @@ import java.util.List;
 
 public abstract class Dao<MODEL_TYPE extends Model> {
 
-    private Class<MODEL_TYPE> clazz;
+    protected Class<MODEL_TYPE> clazz;
 
     @PersistenceContext(unitName = "bdd")
-    private EntityManager entityManager;
+    protected EntityManager entityManager;
 
     Dao(Class<MODEL_TYPE> clazz) {
         this.clazz = clazz;
     }
 
-    private Class<MODEL_TYPE> getEntityClass() {
-        return clazz;
-    }
-
-    private EntityManager getEntityManager() {
-        return entityManager;
-    }
 
     public List<MODEL_TYPE> getList() {
-        EntityManager em = getEntityManager();
-        return em.createQuery("FROM " + getEntityClass().getSimpleName(), this.clazz).getResultList();
+        return entityManager.createQuery("FROM " + clazz.getSimpleName(), this.clazz).getResultList();
     }
 
     public MODEL_TYPE getById(int id) {
-        EntityManager em = getEntityManager();
-        return em.find(getEntityClass(), id);
+        return entityManager.find(clazz, id);
     }
 
     @Transactional
     public void create(MODEL_TYPE entity) {
-        EntityManager em = getEntityManager();
-        em.persist(entity);
+        entityManager.persist(entity);
     }
 
     @Transactional
     public void update(MODEL_TYPE entity) {
-        EntityManager em = getEntityManager();
-        em.merge(entity);
+        entityManager.merge(entity);
     }
 
     @Transactional
     public void remove(MODEL_TYPE entity) {
-        EntityManager em = getEntityManager();
-        em.remove(em.contains(entity) ? entity : em.merge(entity));
+        entityManager.remove(entityManager.contains(entity) ? entity : entityManager.merge(entity));
     }
 }
