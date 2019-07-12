@@ -8,7 +8,7 @@ public class BusResponse extends Response {
     private String brand;
     private Integer capacity;
     private Integer kilometers;
-    private Date release_time;
+    private Date releaseYear;
 
     public BusResponse() {
     }
@@ -45,11 +45,11 @@ public class BusResponse extends Response {
         this.kilometers = kilometers;
     }
 
-    public Date getRelease_time() {
-        return release_time;
+    public Date getReleaseYear() {
+        return releaseYear;
     }
 
-    public void setRelease_time(Date release_time) {
-        this.release_time = release_time;
+    public void setReleaseYear(Date releaseYear) {
+        this.releaseYear = releaseYear;
     }
 }
