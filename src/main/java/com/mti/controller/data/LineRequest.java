@@ -1,6 +1,6 @@
 package com.mti.controller.data;
 
-public class LineRequest extends Request {
+public class LineRequest extends AbstractRequest {
     private Integer number;
 
     public LineRequest() {

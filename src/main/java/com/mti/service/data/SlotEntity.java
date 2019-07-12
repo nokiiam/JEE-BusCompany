@@ -1,16 +1,16 @@
-package com.mti.controller.data;
+package com.mti.service.data;
 
 import java.util.Date;
 
-public class SlotResponse extends AbstractResponse {
+public class SlotEntity extends Entity {
 
     private Date date;
     private Boolean isMorning;
-    private Integer driver;
-    private Integer bus;
-    private Integer line;
+    private DriverEntity driver;
+    private BusEntity bus;
+    private LineEntity line;
 
-    public SlotResponse() {
+    public SlotEntity() {
     }
 
     public Date getDate() {
@@ -29,27 +29,27 @@ public class SlotResponse extends AbstractResponse {
         isMorning = morning;
     }
 
-    public Integer getDriver() {
+    public DriverEntity getDriver() {
         return driver;
     }
 
-    public void setDriver(Integer driver) {
+    public void setDriver(DriverEntity driver) {
         this.driver = driver;
     }
 
-    public Integer getBus() {
+    public BusEntity getBus() {
         return bus;
     }
 
-    public void setBus(Integer bus) {
+    public void setBus(BusEntity bus) {
         this.bus = bus;
     }
 
-    public Integer getLine() {
+    public LineEntity getLine() {
         return line;
     }
 
-    public void setLine(Integer line) {
+    public void setLine(LineEntity line) {
         this.line = line;
     }
 }

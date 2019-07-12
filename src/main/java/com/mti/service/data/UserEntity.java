@@ -1,13 +1,13 @@
-package com.mti.controller.data;
+package com.mti.service.data;
 
-public class UserResponse extends AbstractResponse {
+public class UserEntity extends Entity{
 
     private String login;
     private String password;
-    private Integer driver;
+    private DriverEntity driver;
     private int profile;
 
-    public UserResponse() {
+    public UserEntity() {
     }
 
     public String getLogin() {
@@ -26,11 +26,11 @@ public class UserResponse extends AbstractResponse {
         this.password = password;
     }
 
-    public Integer getDriver() {
+    public DriverEntity getDriver() {
         return driver;
     }
 
-    public void setDriver(Integer driver) {
+    public void setDriver(DriverEntity driver) {
         this.driver = driver;
     }
 

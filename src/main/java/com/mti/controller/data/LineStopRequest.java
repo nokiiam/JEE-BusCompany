@@ -1,6 +1,6 @@
 package com.mti.controller.data;
 
-public class LineStopRequest extends Request {
+public class LineStopRequest extends AbstractRequest {
 
     private Integer line;
     private Integer stop;

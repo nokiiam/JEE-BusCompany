@@ -1,6 +1,6 @@
 package com.mti.controller.data;
 
-public class UserRequest extends Request {
+public class UserRequest extends AbstractRequest {
 
     private String login;
     private String password;

@@ -1,6 +1,6 @@
 package com.mti.controller.data;
 
-public class LineResponse extends Response {
+public class LineResponse extends AbstractResponse {
     private Integer number;
 
     public LineResponse() {

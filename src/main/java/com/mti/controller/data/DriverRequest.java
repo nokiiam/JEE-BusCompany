@@ -2,7 +2,7 @@ package com.mti.controller.data;
 
 import java.util.Date;
 
-public class DriverRequest extends Request {
+public class DriverRequest extends AbstractRequest {
 
     private String code;
     private String firstname;
@@ -11,14 +11,6 @@ public class DriverRequest extends Request {
     private Integer status;
 
     public DriverRequest() {
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public String getFirstname() {

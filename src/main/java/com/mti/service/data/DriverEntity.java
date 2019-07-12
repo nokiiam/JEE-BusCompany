@@ -1,16 +1,16 @@
-package com.mti.controller.data;
+package com.mti.service.data;
 
 import java.util.Date;
 
-public class DriverResponse extends AbstractResponse {
+public class DriverEntity extends Entity {
 
     private String code;
+    private Date birthDate;
     private String firstname;
     private String lastname;
-    private Date birthDate;
-    private Integer status;
+    private int status;
 
-    public DriverResponse() {
+    public DriverEntity() {
     }
 
     public String getCode() {
@@ -19,6 +19,14 @@ public class DriverResponse extends AbstractResponse {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     public String getFirstname() {
@@ -37,19 +45,11 @@ public class DriverResponse extends AbstractResponse {
         this.lastname = lastname;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public Integer getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 }

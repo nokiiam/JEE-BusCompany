@@ -1,6 +1,6 @@
 package com.mti.controller.data;
 
-public class StopResponse extends Response {
+public class StopResponse extends AbstractResponse {
     private String name;
 
     public StopResponse() {

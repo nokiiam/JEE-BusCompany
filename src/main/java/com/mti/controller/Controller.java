@@ -1,8 +1,8 @@
 package com.mti.controller;
 
 import com.mti.controller.converter.ControllerEntityConverter;
-import com.mti.controller.data.Request;
-import com.mti.controller.data.Response;
+import com.mti.controller.data.AbstractRequest;
+import com.mti.controller.data.AbstractResponse;
 import com.mti.model.dao.Dao;
 import com.mti.model.data.Model;
 import com.mti.service.Service;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Produces("application/json; charset=UTF-8")
-public interface Controller<REQUEST_TYPE extends Request, RESPONSE_TYPE extends Response, ENTITY_TYPE extends Entity, MODEL_TYPE extends Model,
+public interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE extends AbstractResponse, ENTITY_TYPE extends Entity, MODEL_TYPE extends Model,
         DAO_TYPE extends Dao<MODEL_TYPE>,
         SERVICE_TYPE extends Service<ENTITY_TYPE, MODEL_TYPE, DAO_TYPE>> {
 

@@ -2,7 +2,7 @@ package com.mti.controller.data;
 
 import java.util.Date;
 
-public class BusRequest extends Request {
+public class BusRequest extends AbstractRequest {
 
     private String registration;
     private String brand;
