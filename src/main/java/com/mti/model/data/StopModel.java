@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Table(name = "bus_stop")
 public class StopModel extends Model {
 
-    @Column(name = "`name`", unique = true)
+    @Column(name = "name", unique = true, nullable = false)
     private String name;
 
     public StopModel() {
