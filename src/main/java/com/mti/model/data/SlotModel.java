@@ -8,6 +8,7 @@ import java.util.Date;
 public class SlotModel extends Model {
 
     @Column(name = "date", nullable = false)
+
     private Date date;
 
     @Column(name = "is_morning", nullable = false)

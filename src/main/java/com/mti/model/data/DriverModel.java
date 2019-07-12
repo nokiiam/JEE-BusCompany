@@ -1,6 +1,7 @@
 package com.mti.model.data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -12,16 +13,20 @@ public class DriverModel extends Model {
     private String code;
 
     @Column(name = "birth_date", nullable = false)
+
     private Date birthDate;
 
     @Column(name = "firstname", length = 45, nullable = false)
+    @Size(min = 2)
     private String firstname;
 
     @Column(name = "lastname", length = 45, nullable = false)
+    @Size(min = 2)
     private String lastname;
 
     @Column(name = "status", length = 11, nullable = false)
-    private int status;
+    @Enumerated(EnumType.ORDINAL)
+    private DriverStatus status;
 
     @OneToMany(mappedBy = "driver")
     private Set<SlotModel> slots = new HashSet<>();
@@ -32,7 +37,7 @@ public class DriverModel extends Model {
     public DriverModel() {
     }
 
-    public DriverModel(String code, Date birthDate, String firstname, String lastname, int status) {
+    public DriverModel(String code, Date birthDate, String firstname, String lastname, DriverStatus status) {
         this.code = code;
         this.birthDate = birthDate;
         this.firstname = firstname;
@@ -72,11 +77,11 @@ public class DriverModel extends Model {
         this.lastname = lastname;
     }
 
-    public int getStatus() {
+    public DriverStatus getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(DriverStatus status) {
         this.status = status;
     }
 
