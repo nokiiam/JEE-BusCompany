@@ -1,4 +1,8 @@
 package com.mti.service;
 
-public class StopService {
+import com.mti.model.dao.StopDao;
+import com.mti.model.data.StopModel;
+import com.mti.service.data.StopEntity;
+
+public class StopService extends Service<StopEntity, StopModel, StopDao> {
 }
