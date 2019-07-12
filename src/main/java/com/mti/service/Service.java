@@ -20,6 +20,11 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
         this.converter = converter;
     }
 
+    /**
+     * Function which return all element of ENTITY_TYPE
+     *
+     * @return List with all element of ENTITY_TYPE
+     */
     public List<ENTITY_TYPE> getList() {
         return dao.getList()
                 .stream()
@@ -28,26 +33,63 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Function which should return the element with the
+     * selected id if it exist
+     * @param id id of the element to be return
+     * @return null if no element found, the element otherwise
+     */
     public ENTITY_TYPE getById(int id) {
-        return converter.modelToEntity(dao.getById(id));
+        MODEL_TYPE model = dao.getById(id);
+        if (model == null)
+            return null;
+        return converter.modelToEntity(model);
     }
 
+
+    /**
+     * Function which should create and return an element
+     * @param entity entity to create in the database
+     * @return return the entity created
+     */
 
     public ENTITY_TYPE create(ENTITY_TYPE entity) {
         MODEL_TYPE model = converter.entityToModel(entity);
         dao.create(model);
-        return converter.modelToEntity(model); //FIXME should take care of fail from dao
+        // TODO handle error
+        return converter.modelToEntity(model);
     }
 
+    /**
+     * Should delete an entity by his id
+     * @param id id of the entity to delete
+     */
+
     public void delete(int id) {
+        // TODO handle error
         delete(getById(id));
     }
 
+    /**
+     * Delete an entity
+     * @param entity entity to delete
+     */
     private void delete(ENTITY_TYPE entity) {
+        // TODO handle error
         dao.remove(converter.entityToModel(entity));
     }
 
+    /**
+     * Update an entity
+     * @param id id of the entity to delete
+     * @param entity new state of the entity
+     * @return null if entity existed, or the new entity otherwise
+     */
     public ENTITY_TYPE update(int id, ENTITY_TYPE entity) {
+        ENTITY_TYPE lastEntity = getById(id);
+        if (lastEntity == null)
+            return null;
+
         MODEL_TYPE model = converter.entityToModel(entity);
         model.setId(id);
         dao.update(model);
