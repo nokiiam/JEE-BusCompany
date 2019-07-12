@@ -6,7 +6,7 @@ import com.mti.service.data.StopEntity;
 
 public class ControllerEntityStopConverter implements ControllerEntityConverter<StopRequest, StopResponse, StopEntity> {
     @Override
-    public StopEntity controllerToEntity(StopRequest model) {
+    public StopEntity controllerToEntity(StopRequest request) {
         return null;
     }
 
