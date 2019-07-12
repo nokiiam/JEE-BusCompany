@@ -20,7 +20,7 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
         this.converter = converter;
     }
 
-    public List<ENTITY_TYPE> findAll() {
+    public List<ENTITY_TYPE> getList() {
         return dao.getList()
                 .stream()
                 .filter(Objects::nonNull)
@@ -28,7 +28,7 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
                 .collect(Collectors.toList());
     }
 
-    private ENTITY_TYPE findOne(int id) {
+    public ENTITY_TYPE getById(int id) {
         return converter.modelToEntity(dao.getById(id));
     }
 
@@ -40,7 +40,7 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
     }
 
     public void delete(int id) {
-        delete(findOne(id));
+        delete(getById(id));
     }
 
     private void delete(ENTITY_TYPE entity) {
