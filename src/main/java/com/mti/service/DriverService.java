@@ -23,4 +23,17 @@ public class DriverService extends Service<DriverEntity, DriverModel, DriverDao>
         dao.create(model);
         return converter.modelToEntity(model); //FIXME should take care of fail from dao
     }
+
+    @Override
+    public DriverEntity update(int id, DriverEntity entity) {
+        // TODO handle error
+        DriverEntity lastEntity = getById(id);
+        if (lastEntity == null)
+            return null;
+        entity.setCode(lastEntity.getCode());
+        DriverModel model = converter.entityToModel(entity);
+        model.setId(id);
+        dao.update(model);
+        return converter.modelToEntity(model);
+    }
 }
