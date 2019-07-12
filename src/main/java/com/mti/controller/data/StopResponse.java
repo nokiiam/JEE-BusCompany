@@ -6,6 +6,7 @@ public class StopResponse extends Response {
     public StopResponse() {
 
     }
+
     public String getName() {
         return name;
     }

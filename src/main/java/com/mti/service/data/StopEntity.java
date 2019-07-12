@@ -6,6 +6,7 @@ public class StopEntity extends Entity {
     public StopEntity() {
 
     }
+
     public String getName() {
         return name;
     }

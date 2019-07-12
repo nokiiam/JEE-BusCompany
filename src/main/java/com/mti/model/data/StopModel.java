@@ -11,6 +11,7 @@ public class StopModel extends Model {
     public StopModel() {
 
     }
+
     public String getName() {
         return name;
     }

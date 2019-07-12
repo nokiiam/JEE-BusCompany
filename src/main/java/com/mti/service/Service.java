@@ -21,7 +21,7 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
     }
 
     public List<ENTITY_TYPE> findAll() {
-        return dao.findAll()
+        return dao.getList()
                 .stream()
                 .filter(Objects::nonNull)
                 .map(converter::modelToEntity)
@@ -29,7 +29,7 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
     }
 
     private ENTITY_TYPE findOne(int id) {
-        return converter.modelToEntity(dao.findOne(id));
+        return converter.modelToEntity(dao.getById(id));
     }
 
 

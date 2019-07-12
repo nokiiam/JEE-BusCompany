@@ -6,6 +6,7 @@ public class StopRequest extends Request {
     public StopRequest() {
 
     }
+
     public String getName() {
         return name;
     }

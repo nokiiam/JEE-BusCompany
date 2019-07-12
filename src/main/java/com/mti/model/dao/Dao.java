@@ -27,12 +27,12 @@ public abstract class Dao<MODEL_TYPE extends Model> {
         return entityManager;
     }
 
-    public List<MODEL_TYPE> findAll() {
+    public List<MODEL_TYPE> getList() {
         EntityManager em = getEntityManager();
         return em.createQuery("FROM " + getEntityClass().getSimpleName(), this.clazz).getResultList();
     }
 
-    public MODEL_TYPE findOne(int id) {
+    public MODEL_TYPE getById(int id) {
         EntityManager em = getEntityManager();
         return em.find(getEntityClass(), id);
     }
