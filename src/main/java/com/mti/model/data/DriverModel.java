@@ -2,6 +2,7 @@ package com.mti.model.data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -23,7 +24,8 @@ public class DriverModel extends Model {
     private int status;
 
     @OneToMany(mappedBy = "driver")
-    private Set<SlotModel> slots;
+    private Set<SlotModel> slots = new HashSet<>();
+
     @OneToOne(mappedBy = "driver")
     private UserModel user;
 
@@ -92,9 +94,10 @@ public class DriverModel extends Model {
     }
 
     public void addSlot(SlotModel slot) {
-        slot.setDriver(this);
-        if (slots.contains(slot))
+        if (slot == null)
             return;
+
+        slot.setDriver(this);
         slots.add(slot);
     }
 
