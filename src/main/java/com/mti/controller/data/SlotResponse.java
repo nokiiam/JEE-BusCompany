@@ -2,7 +2,7 @@ package com.mti.controller.data;
 
 import java.util.Date;
 
-public class SlotResponse extends Response {
+public class SlotResponse extends AbstractResponse {
 
     private Date date;
     private Boolean isMorning;

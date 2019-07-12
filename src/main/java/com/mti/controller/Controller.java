@@ -1,8 +1,8 @@
 package com.mti.controller;
 
 import com.mti.controller.converter.ControllerEntityConverter;
-import com.mti.controller.data.Request;
-import com.mti.controller.data.Response;
+import com.mti.controller.data.AbstractRequest;
+import com.mti.controller.data.AbstractResponse;
 import com.mti.model.dao.Dao;
 import com.mti.model.data.Model;
 import com.mti.service.Service;
@@ -12,7 +12,7 @@ import javax.ws.rs.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-interface Controller<REQUEST_TYPE extends Request, RESPONSE_TYPE extends Response, ENTITY_TYPE extends Entity, MODEL_TYPE extends Model,
+interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE extends AbstractResponse, ENTITY_TYPE extends Entity, MODEL_TYPE extends Model,
         DAO_TYPE extends Dao<MODEL_TYPE>,
         SERVICE_TYPE extends Service<ENTITY_TYPE, MODEL_TYPE, DAO_TYPE>> {
 
@@ -22,6 +22,14 @@ interface Controller<REQUEST_TYPE extends Request, RESPONSE_TYPE extends Respons
 
     @GET
     default List<RESPONSE_TYPE> getList() {
+       /*List<RESPONSE_TYPE> responses = new ArrayList<>();
+        getService().getList().forEach(entity ->{responses.add(getConverter().entityToController(entity));});
+        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        try {
+            return javax.ws.rs.core.AbstractResponse.ok(ow.writeValueAsString(responses)).build();
+        } catch (Exception e) {
+            return javax.ws.rs.core.AbstractResponse.serverError().build();
+        }*/
         return getService().getList()
                 .stream()
                 .map(getConverter()::entityToController)

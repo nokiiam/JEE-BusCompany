@@ -1,13 +1,13 @@
 package com.mti.controller.data;
 
-public abstract class Response {
+public abstract class AbstractResponse {
 
     private Integer id;
 
-    Response() {
+    AbstractResponse() {
     }
 
-    public Response(Integer id) {
+    public AbstractResponse(Integer id) {
         this.id = id;
     }
 

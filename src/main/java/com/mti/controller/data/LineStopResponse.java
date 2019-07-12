@@ -1,6 +1,6 @@
 package com.mti.controller.data;
 
-public class LineStopResponse extends Response {
+public class LineStopResponse extends AbstractResponse {
 
     private Integer line;
     private Integer stop;

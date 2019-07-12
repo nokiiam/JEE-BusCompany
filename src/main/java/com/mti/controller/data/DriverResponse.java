@@ -2,7 +2,7 @@ package com.mti.controller.data;
 
 import java.util.Date;
 
-public class DriverResponse extends Response {
+public class DriverResponse extends AbstractResponse {
 
     private String code;
     private String firstname;

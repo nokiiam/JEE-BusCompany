@@ -2,7 +2,7 @@ package com.mti.controller.data;
 
 import java.util.Date;
 
-public class BusResponse extends Response {
+public class BusResponse extends AbstractResponse {
 
     private String registration;
     private String brand;

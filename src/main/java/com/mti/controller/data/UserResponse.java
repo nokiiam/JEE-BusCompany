@@ -1,6 +1,6 @@
 package com.mti.controller.data;
 
-public class UserResponse extends Response {
+public class UserResponse extends AbstractResponse {
 
     private String login;
     private String password;
