@@ -21,9 +21,9 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
     }
 
     /**
-     * Function which return all element of ENTITY_TYPE
+     * Return all element of type 'ENTITY_TYPE'
      *
-     * @return List with all element of ENTITY_TYPE
+     * @return List of ENTITY_TYPE
      */
     public List<ENTITY_TYPE> getList() {
         return dao.getList()
@@ -34,10 +34,10 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
     }
 
     /**
-     * Function which should return the element with the
-     * selected id if it exist
-     * @param id id of the element to be return
-     * @return null if no element found, the element otherwise
+     * Return the element with the selected id
+     *
+     * @param id the id of the element to be return
+     * @return the element or null if no element was found
      */
     public ENTITY_TYPE getById(int id) {
         MODEL_TYPE model = dao.getById(id);
@@ -48,9 +48,10 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
 
 
     /**
-     * Function which should create and return an element
-     * @param entity entity to create in the database
-     * @return return the entity created
+     * Create and return an element of type 'ENTITY_TYPE'
+     *
+     * @param entity the entity to create
+     * @return return the entity created or null if the creation failed
      */
 
     public ENTITY_TYPE create(ENTITY_TYPE entity) {
@@ -61,7 +62,8 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
     }
 
     /**
-     * Should delete an entity by his id
+     * Delete the element with the selected id
+     *
      * @param id id of the entity to delete
      */
 
@@ -71,8 +73,9 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
     }
 
     /**
-     * Delete an entity
-     * @param entity entity to delete
+     * Delete an element
+     *
+     * @param entity the entity to delete
      */
     private void delete(ENTITY_TYPE entity) {
         // TODO handle error
@@ -80,12 +83,14 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
     }
 
     /**
-     * Update an entity
-     * @param id id of the entity to delete
+     * Update the element with the selected id
+     *
+     * @param id the id of the entity to update
      * @param entity new state of the entity
-     * @return null if entity existed, or the new entity otherwise
+     * @return the new entity or null if the update failed
      */
     public ENTITY_TYPE update(int id, ENTITY_TYPE entity) {
+        // TODO handle error
         ENTITY_TYPE lastEntity = getById(id);
         if (lastEntity == null)
             return null;
