@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Model, DAO_TYPE extends Dao<MODEL_TYPE>> {
+public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Model, DAO_TYPE extends Dao<MODEL_TYPE>> {
 
     private DAO_TYPE dao;
     private EntityModelConverter<ENTITY_TYPE, MODEL_TYPE> converter;
