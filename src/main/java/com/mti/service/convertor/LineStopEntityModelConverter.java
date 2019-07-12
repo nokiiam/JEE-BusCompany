@@ -20,6 +20,7 @@ public class LineStopEntityModelConverter implements EntityModelConverter<LineSt
     public LineStopModel entityToModel(LineStopEntity entity) {
         LineStopModel lineStopModel = new LineStopModel();
 
+        lineStopModel.setId(entity.getId());
         lineStopModel.setLine(lineConverter.entityToModel(entity.getLine()));
         lineStopModel.setStop(stopConverter.entityToModel(entity.getStop()));
         lineStopModel.setOrder(entity.getOrder());
