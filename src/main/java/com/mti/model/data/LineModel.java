@@ -17,4 +17,12 @@ public class LineModel extends Model {
     public LineModel(int number) {
         this.number = number;
     }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
 }
