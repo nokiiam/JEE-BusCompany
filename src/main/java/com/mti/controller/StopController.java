@@ -14,6 +14,10 @@ import javax.inject.Inject;
 import javax.ws.rs.Path;
 
 
+/**
+ * Controller for lines
+ * Handles requests to '/stops'
+ */
 @RequestScoped
 @Path("/stops")
 public class StopController implements Controller<StopRequest, StopResponse, StopEntity, StopModel, StopDao, StopService> {

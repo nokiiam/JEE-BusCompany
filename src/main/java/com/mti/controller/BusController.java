@@ -11,8 +11,15 @@ import com.mti.service.data.BusEntity;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.ws.rs.Path;
 
+
+/**
+ * Controller for lines
+ * Handles requests to '/buses'
+ */
 @RequestScoped
+@Path("/buses")
 public class BusController implements Controller<BusRequest, BusResponse, BusEntity, BusModel, BusDao, BusService> {
 
     @Inject

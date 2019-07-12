@@ -9,8 +9,17 @@ import com.mti.model.data.LineModel;
 import com.mti.service.LineService;
 import com.mti.service.data.LineEntity;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.ws.rs.Path;
 
+
+/**
+ * Controller for lines
+ * Handles requests to '/lines'
+ */
+@RequestScoped
+@Path("/lines")
 public class LineController implements Controller<LineRequest, LineResponse, LineEntity, LineModel, LineDao, LineService> {
 
     @Inject
