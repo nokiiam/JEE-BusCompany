@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-abstract class Service<ENTITY_TYPE, MODEL_TYPE extends Model,DAO_TYPE extends Dao<MODEL_TYPE>> {
+public class Service<ENTITY_TYPE, MODEL_TYPE extends Model,DAO_TYPE extends Dao<MODEL_TYPE>> {
 
     private DAO_TYPE dao;
     private EntityModelConverter<ENTITY_TYPE,MODEL_TYPE> converter;
