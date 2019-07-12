@@ -16,10 +16,10 @@ import javax.ws.rs.Path;
 
 /**
  * Controller for lines
- * Handles requests to '/stops'
+ * Handles requests to '/linestops'
  */
 @RequestScoped
-@Path("/stops")
+@Path("/linestops")
 public class LineStopController implements Controller<LineStopRequest, LineStopResponse, LineStopEntity, LineStopModel, LineStopDao, LineStopService> {
 
     @Inject

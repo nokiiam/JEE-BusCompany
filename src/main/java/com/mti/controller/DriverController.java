@@ -16,10 +16,10 @@ import javax.ws.rs.Path;
 
 /**
  * Controller for lines
- * Handles requests to '/stops'
+ * Handles requests to '/drivers'
  */
 @RequestScoped
-@Path("/stops")
+@Path("/drivers")
 public class DriverController implements Controller<DriverRequest, DriverResponse, DriverEntity, DriverModel, DriverDao, DriverService> {
 
     @Inject
