@@ -6,9 +6,9 @@ public class SlotResponse extends AbstractResponse {
 
     private Date date;
     private Boolean isMorning;
-    private Integer driver;
-    private Integer bus;
-    private Integer line;
+    private DriverResponse driver;
+    private BusResponse bus;
+    private LineResponse line;
 
     public SlotResponse() {
     }
@@ -29,27 +29,27 @@ public class SlotResponse extends AbstractResponse {
         isMorning = morning;
     }
 
-    public Integer getDriver() {
+    public DriverResponse getDriver() {
         return driver;
     }
 
-    public void setDriver(Integer driver) {
+    public void setDriver(DriverResponse driver) {
         this.driver = driver;
     }
 
-    public Integer getBus() {
+    public BusResponse getBus() {
         return bus;
     }
 
-    public void setBus(Integer bus) {
+    public void setBus(BusResponse bus) {
         this.bus = bus;
     }
 
-    public Integer getLine() {
+    public LineResponse getLine() {
         return line;
     }
 
-    public void setLine(Integer line) {
+    public void setLine(LineResponse line) {
         this.line = line;
     }
 }
