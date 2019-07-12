@@ -1,6 +1,7 @@
 package com.mti.service.convertor;
 
 import com.mti.model.data.UserModel;
+import com.mti.model.data.UserProfile;
 import com.mti.service.data.UserEntity;
 
 import javax.inject.Inject;
@@ -17,7 +18,7 @@ public class UserEntityModelConverter implements EntityModelConverter<UserEntity
         userModel.setId(entity.getId());
         userModel.setLogin(entity.getLogin());
         userModel.setPassword(entity.getPassword());
-        userModel.setProfile(entity.getProfile());
+        userModel.setProfile(UserProfile.fromInt(entity.getProfile()));
         userModel.setDriver(driverConverter.entityToModel(entity.getDriver()));
 
         return userModel;
@@ -28,7 +29,7 @@ public class UserEntityModelConverter implements EntityModelConverter<UserEntity
         UserEntity userEntity = new UserEntity();
 
         userEntity.setId(model.getId());
-        userEntity.setProfile(model.getProfile());
+        userEntity.setProfile(model.getProfile().ordinal());
         userEntity.setPassword(model.getPassword());
         userEntity.setLogin(model.getLogin());
         userEntity.setDriver(driverConverter.modelToEntity(model.getDriver()));

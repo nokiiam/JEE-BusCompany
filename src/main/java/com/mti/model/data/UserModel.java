@@ -17,12 +17,13 @@ public class UserModel extends Model {
     private DriverModel driver;
 
     @Column(name = "profile", nullable = false, length = 11)
-    private int profile;
+    @Enumerated(EnumType.ORDINAL)
+    private UserProfile profile;
 
     public UserModel() {
     }
 
-    public UserModel(String login, String password, DriverModel driver, int profile) {
+    public UserModel(String login, String password, DriverModel driver, UserProfile profile) {
         this.login = login;
         this.password = password;
         this.driver = driver;
@@ -53,11 +54,11 @@ public class UserModel extends Model {
         this.driver = driver;
     }
 
-    public int getProfile() {
+    public UserProfile getProfile() {
         return profile;
     }
 
-    public void setProfile(int profile) {
+    public void setProfile(UserProfile profile) {
         this.profile = profile;
     }
 }
