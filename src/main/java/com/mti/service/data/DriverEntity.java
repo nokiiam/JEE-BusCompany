@@ -2,7 +2,7 @@ package com.mti.service.data;
 
 import java.util.Date;
 
-public class DriverEntity {
+public class DriverEntity extends Entity {
 
     private String code;
     private Date birthDate;
