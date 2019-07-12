@@ -7,7 +7,7 @@ POST http://localhost:8080/MyBusCompany/api/stops
 Content-Type: application/json
 
 {
-  "name": "toto"
+  "name": "tolt"
 }
 
 > {%
@@ -20,7 +20,7 @@ POST http://localhost:8080/MyBusCompany/api/stops
 Content-Type: application/json
 
 {
-  "name": "toto"
+  "name": "tolt"
 }
 
 ###
@@ -37,12 +37,12 @@ PUT http://localhost:8080/MyBusCompany/api/stops/{{lastId}}
 Content-Type: application/json
 
 {
-  "name": "tata"
+  "name": "tott"
 }
 
 ###
 # Error shoudl return 400
-PUT http://localhost:8080/MyBusCompany/api/stops/1
+PUT http://localhost:8080/MyBusCompany/api/stops/{{lastId}}
 Content-Type: application/json
 
 {
@@ -55,13 +55,15 @@ PUT http://localhost:8080/MyBusCompany/api/stops/404
 Content-Type: application/json
 
 {
-  "name": "tata"
+  "name": "tttxtxtt"
 }
 
 ###
 # should delete element
-DELETE http://localhost:8080/MyBusCompany/api/stops/1
+DELETE http://localhost:8080/MyBusCompany/api/stops/{{lastId}}
 
 ###
 # Error should return 404
 DELETE http://localhost:8080/MyBusCompany/api/stops/404
+
+###
