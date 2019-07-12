@@ -22,11 +22,11 @@ public class BusController implements Controller<BusRequest, BusResponse, BusEnt
 
     @Override
     public BusService getService() {
-        return null;
+        return service;
     }
 
     @Override
     public ControllerEntityConverter<BusRequest, BusResponse, BusEntity> getConverter() {
-        return null;
+        return converter;
     }
 }
