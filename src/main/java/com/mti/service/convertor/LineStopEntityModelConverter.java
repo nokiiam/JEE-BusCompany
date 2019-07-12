@@ -10,13 +10,6 @@ import com.mti.service.data.LineStopEntity;
 import javax.inject.Inject;
 
 public class LineStopEntityModelConverter implements EntityModelConverter<LineStopEntity, LineStopModel> {
-
-    @Inject
-    LineDao lineDao;
-
-    @Inject
-    StopDao stopDao;
-    
     @Inject
     LineEntityModelConverter lineConverter;
 
@@ -25,18 +18,10 @@ public class LineStopEntityModelConverter implements EntityModelConverter<LineSt
 
     @Override
     public LineStopModel entityToModel(LineStopEntity entity) {
-        LineModel lineModel = lineDao.getById(entity.getLine().getId());
-        if (lineModel == null)
-            return null;
-
-        StopModel stopModel = stopDao.getById(entity.getStop().getId());
-        if (stopModel == null)
-            return null;
-        
         LineStopModel lineStopModel = new LineStopModel();
 
-        lineStopModel.setLine(lineModel);
-        lineStopModel.setStop(stopModel);
+        lineStopModel.setLine(lineConverter.entityToModel(entity.getLine()));
+        lineStopModel.setStop(stopConverter.entityToModel(entity.getStop()));
         lineStopModel.setOrder(entity.getOrder());
 
         return lineStopModel;
