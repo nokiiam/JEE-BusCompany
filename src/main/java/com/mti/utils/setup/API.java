@@ -1,5 +1,6 @@
 package com.mti.utils.setup;
 
+import com.mti.controller.LineController;
 import com.mti.controller.StopController;
 import com.mti.controller.filter.RestCorsFilter;
 
@@ -20,6 +21,7 @@ public class API extends Application {
         Set<Class<?>> resources = new java.util.HashSet<>();
         resources.add(StopController.class);
         resources.add(RestCorsFilter.class);
+        resources.add(LineController.class);
         return resources;
     }
 }
