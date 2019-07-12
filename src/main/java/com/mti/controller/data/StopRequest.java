@@ -4,7 +4,6 @@ public class StopRequest extends Request {
     private String name;
 
     public StopRequest() {
-
     }
 
     public String getName() {
