@@ -8,6 +8,7 @@ import com.mti.model.data.Model;
 import com.mti.service.Service;
 import com.mti.service.data.Entity;
 
+import javax.validation.ConstraintViolationException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.List;
@@ -26,7 +27,7 @@ public interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE 
     /**
      * Handle 'GET' requests on the controller endpoint
      *
-     * @return
+     * @return return the list of all entities
      */
     @GET
     default List<RESPONSE_TYPE> getList() {
@@ -73,6 +74,8 @@ public interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE 
         }
         try {
             entity = getService().create(entity);
+        } catch (ConstraintViolationException | IllegalArgumentException e) {
+            return Response.status(400).build();
         } catch (Exception e) {
             return Response
                     .status(409).build();
@@ -88,7 +91,7 @@ public interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE 
      * Handle 'DELETE' requests on the controller endpoint for a specific id
      * Delete the element with the specified <code>param</code> id
      *
-     * @return
+     * @return http value of 200 if success and 404 if failure
      */
     @DELETE
     @Path("/{id}")

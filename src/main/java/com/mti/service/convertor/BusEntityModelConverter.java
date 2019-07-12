@@ -1,5 +1,6 @@
 package com.mti.service.convertor;
 
+import com.mti.model.data.BusBrand;
 import com.mti.model.data.BusModel;
 import com.mti.service.data.BusEntity;
 
@@ -10,7 +11,7 @@ public class BusEntityModelConverter implements EntityModelConverter<BusEntity, 
     @Override
     public BusModel entityToModel(BusEntity request) {
         BusModel model = new BusModel();
-        model.setBrand(request.getBrand());
+        model.setBrand(BusBrand.valueOf(request.getBrand()));
         model.setCapacity(request.getCapacity());
         model.setKilometers(request.getKilometers());
         model.setRegistration(request.getRegistration());
@@ -22,7 +23,7 @@ public class BusEntityModelConverter implements EntityModelConverter<BusEntity, 
     public BusEntity modelToEntity(BusModel entity) {
         BusEntity stopResponse = new BusEntity();
         stopResponse.setId(entity.getId());
-        stopResponse.setBrand(entity.getBrand());
+        stopResponse.setBrand(entity.getBrand().toString());
         stopResponse.setCapacity(entity.getCapacity());
         stopResponse.setKilometers(entity.getKilometers());
         stopResponse.setRegistration(entity.getRegistration());

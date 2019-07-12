@@ -1,9 +1,9 @@
 package com.mti.model.data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,18 +13,23 @@ import java.util.Set;
 public class BusModel extends Model {
 
     @Column(name = "registration", nullable = false, unique = true, length = 9)
+    @Pattern(regexp = "[A-Z]{2}-[0-9]{3}-[A-Z]{2}")
     private String registration;
 
     @Column(name = "brand", nullable = false, length = 45)
-    private String Brand;
+    @Enumerated(EnumType.STRING)
+    private BusBrand Brand;
 
     @Column(name = "capacity", length = 11, nullable = false)
+    @Min(20)
+    @Max(80)
     private int capacity;
 
     @Column(name = "release_year", nullable = false)
     private Date releaseYear;
 
     @Column(name = "kilometers", length = 11, nullable = false)
+    @Min(0)
     private int kilometers;
 
     @OneToMany(mappedBy = "bus")
@@ -33,7 +38,7 @@ public class BusModel extends Model {
     public BusModel() {
     }
 
-    public BusModel(String registration, String brand, int capacity, Date releaseYear, int kilometers) {
+    public BusModel(String registration, BusBrand brand, int capacity, Date releaseYear, int kilometers) {
         this.registration = registration;
         Brand = brand;
         this.capacity = capacity;
@@ -49,11 +54,11 @@ public class BusModel extends Model {
         this.registration = registration;
     }
 
-    public String getBrand() {
+    public BusBrand getBrand() {
         return Brand;
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(BusBrand brand) {
         Brand = brand;
     }
 
