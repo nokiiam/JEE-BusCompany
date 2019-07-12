@@ -1,8 +1,12 @@
 package com.mti.controller.converter;
 
-public interface ControllerEntityConverter<REQUEST_MODEL_TYPE, RESPONSE_MODEL_TYPE, ENTITY_TYPE> {
+import com.mti.service.data.Entity;
+import com.mti.controller.data.Request;
+import com.mti.controller.data.Response;
 
-    ENTITY_TYPE controllerToEntity(REQUEST_MODEL_TYPE model);
+public interface ControllerEntityConverter<REQUEST_TYPE extends Request, RESPONSE_TYPE extends Response, ENTITY_TYPE extends Entity> {
 
-    RESPONSE_MODEL_TYPE entityToController(ENTITY_TYPE entity);
+    ENTITY_TYPE controllerToEntity(REQUEST_TYPE request);
+
+    RESPONSE_TYPE entityToController(ENTITY_TYPE entity);
 }

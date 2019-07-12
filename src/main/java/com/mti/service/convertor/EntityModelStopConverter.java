@@ -9,11 +9,17 @@ import javax.inject.Singleton;
 public class EntityModelStopConverter implements EntityModelConverter<StopEntity, StopModel> {
     @Override
     public StopModel entityToModel(StopEntity entity) {
-        return null;
+        StopModel model = new StopModel();
+        model.setId(entity.getId());
+        model.setName(entity.getName());
+        return model;
     }
 
     @Override
     public StopEntity modelToEntity(StopModel model) {
-        return null;
+        StopEntity entity = new StopEntity();
+        entity.setId(model.getId());
+        entity.setName(model.getName());
+        return entity;
     }
 }
