@@ -6,7 +6,7 @@ import com.mti.service.data.StopEntity;
 import javax.inject.Singleton;
 
 @Singleton
-public class EntityModelStopConverter implements EntityModelConverter<StopEntity, StopModel> {
+public class StopEntityModelConverter implements EntityModelConverter<StopEntity, StopModel> {
     @Override
     public StopModel entityToModel(StopEntity entity) {
         StopModel model = new StopModel();

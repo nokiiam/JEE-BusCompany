@@ -7,11 +7,11 @@ public class LineEntity extends Entity {
 
     }
 
-    public Integer getName() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setName(Integer number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 }
