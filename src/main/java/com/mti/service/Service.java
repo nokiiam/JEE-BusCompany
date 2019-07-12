@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class Service<ENTITY_TYPE, MODEL_TYPE extends Model,DAO_TYPE extends Dao<MODEL_TYPE>> {
+public class Service<ENTITY_TYPE, MODEL_TYPE extends Model, DAO_TYPE extends Dao<MODEL_TYPE>> {
 
     private DAO_TYPE dao;
-    private EntityModelConverter<ENTITY_TYPE,MODEL_TYPE> converter;
+    private EntityModelConverter<ENTITY_TYPE, MODEL_TYPE> converter;
 
 
-    public Service(DAO_TYPE dao, EntityModelConverter<ENTITY_TYPE,MODEL_TYPE> converter) {
+    Service(DAO_TYPE dao, EntityModelConverter<ENTITY_TYPE, MODEL_TYPE> converter) {
         this.dao = dao;
         this.converter = converter;
     }

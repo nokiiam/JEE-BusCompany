@@ -10,8 +10,7 @@ public abstract class Encryptor {
         MessageDigest md = null;
         try {
             md = MessageDigest.getInstance("SHA-1");
-        }
-        catch(NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
         assert md != null;

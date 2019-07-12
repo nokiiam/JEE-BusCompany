@@ -7,5 +7,5 @@ import com.mti.model.data.StopModel;
 import com.mti.service.StopService;
 import com.mti.service.data.StopEntity;
 
-public class StopController implements Controller<StopRequest, StopResponse, StopEntity, StopModel, StopDao, StopService>{
+public class StopController implements Controller<StopRequest, StopResponse, StopEntity, StopModel, StopDao, StopService> {
 }
