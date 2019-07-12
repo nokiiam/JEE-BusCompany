@@ -4,7 +4,7 @@ public abstract class Response {
 
     private Integer id;
 
-    public Response() {
+    Response() {
     }
 
     public Response(Integer id) {

@@ -4,7 +4,7 @@ public abstract class Request {
 
     private Integer id;
 
-    public Request() {
+    Request() {
     }
 
     public Request(Integer id) {
