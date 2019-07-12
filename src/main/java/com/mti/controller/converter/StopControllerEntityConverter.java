@@ -7,16 +7,16 @@ import com.mti.service.data.StopEntity;
 public class StopControllerEntityConverter implements ControllerEntityConverter<StopRequest, StopResponse, StopEntity> {
     @Override
     public StopEntity controllerToEntity(StopRequest request) {
-        StopEntity stopEntity = new StopEntity();
-        stopEntity.setName(request.getName());
-        return stopEntity;
+        StopEntity entity = new StopEntity();
+        entity.setName(request.getName());
+        return entity;
     }
 
     @Override
     public StopResponse entityToController(StopEntity entity) {
-        StopResponse stopResponse = new StopResponse();
-        stopResponse.setId(entity.getId());
-        stopResponse.setName(entity.getName());
-        return stopResponse;
+        StopResponse response = new StopResponse();
+        response.setId(entity.getId());
+        response.setName(entity.getName());
+        return response;
     }
 }
