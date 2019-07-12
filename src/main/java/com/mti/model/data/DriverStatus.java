@@ -17,21 +17,4 @@ public enum DriverStatus {
                 return null;
         }
     }
-
-    public static int ToInteger(DriverStatus status) {
-        switch (status) {
-            case DailyRest:
-                return 1;
-            case InActivity:
-                return 0;
-            case WeeklyRest:
-                return 2;
-            default:
-                return -1;
-        }
-    }
-
-    public int toInteger() {
-        return DriverStatus.ToInteger(this);
-    }
 }
