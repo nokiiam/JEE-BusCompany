@@ -2,7 +2,7 @@ package com.mti.service.data;
 
 import java.util.Date;
 
-public class SlotEntity {
+public class SlotEntity extends Entity {
 
     private Date date;
     private Boolean isMorning;
