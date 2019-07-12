@@ -1,9 +1,9 @@
 package com.mti.controller.data;
 
-public class BusLineRequest extends Request {
+public class LineResponse extends Response {
     private Integer line_number;
 
-    public BusLineRequest() {
+    public LineResponse() {
     }
 
     public Integer getLine_number() {
