@@ -4,7 +4,7 @@ public class UserRequest extends Request {
 
     private String login;
     private String password;
-    private DriverResponse driver;
+    private Integer driver;
     private int profile;
 
     public UserRequest() {
@@ -26,11 +26,11 @@ public class UserRequest extends Request {
         this.password = password;
     }
 
-    public DriverResponse getDriver() {
+    public Integer getDriver() {
         return driver;
     }
 
-    public void setDriver(DriverResponse driver) {
+    public void setDriver(Integer driver) {
         this.driver = driver;
     }
 
