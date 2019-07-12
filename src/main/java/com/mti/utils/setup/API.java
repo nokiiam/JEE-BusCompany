@@ -1,5 +1,6 @@
 package com.mti.utils.setup;
 
+import com.mti.controller.BusController;
 import com.mti.controller.LineController;
 import com.mti.controller.StopController;
 import com.mti.controller.filter.RestCorsFilter;
@@ -22,6 +23,7 @@ public class API extends Application {
         resources.add(StopController.class);
         resources.add(RestCorsFilter.class);
         resources.add(LineController.class);
+        resources.add(BusController.class);
         return resources;
     }
 }
