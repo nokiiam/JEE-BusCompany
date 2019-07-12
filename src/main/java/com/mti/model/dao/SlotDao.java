@@ -2,13 +2,13 @@ package com.mti.model.dao;
 
 import com.mti.model.data.SlotModel;
 
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
+import javax.inject.Named;
 
+
+@Named
 public class SlotDao extends Dao<SlotModel> {
 
-    @Inject
-    SlotDao(EntityManager entityManager) {
-        super(SlotModel.class, entityManager);
+    SlotDao() {
+        super(SlotModel.class);
     }
 }

@@ -2,13 +2,12 @@ package com.mti.model.dao;
 
 import com.mti.model.data.UserModel;
 
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
+import javax.inject.Named;
 
+@Named
 public class UserDao extends Dao<UserModel> {
 
-    @Inject
-    UserDao(EntityManager entityManager) {
-        super(UserModel.class, entityManager);
+    UserDao() {
+        super(UserModel.class);
     }
 }

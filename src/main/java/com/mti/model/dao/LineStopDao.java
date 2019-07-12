@@ -2,13 +2,12 @@ package com.mti.model.dao;
 
 import com.mti.model.data.LineStopModel;
 
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
+import javax.inject.Named;
 
+@Named
 public class LineStopDao extends Dao<LineStopModel> {
 
-    @Inject
-    LineStopDao(EntityManager entityManager) {
-        super(LineStopModel.class, entityManager);
+    LineStopDao() {
+        super(LineStopModel.class);
     }
 }

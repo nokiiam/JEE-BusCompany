@@ -2,15 +2,12 @@ package com.mti.model.dao;
 
 import com.mti.model.data.StopModel;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-import javax.persistence.EntityManager;
+import javax.inject.Named;
 
-@Singleton
+@Named
 public class StopDao extends Dao<StopModel> {
 
-    @Inject
-    public StopDao(EntityManager entityManager) {
-        super(StopModel.class, entityManager);
+    public StopDao() {
+        super(StopModel.class);
     }
 }
