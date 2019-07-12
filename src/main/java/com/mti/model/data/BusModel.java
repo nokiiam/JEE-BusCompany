@@ -2,8 +2,11 @@ package com.mti.model.data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "bus")
@@ -23,6 +26,9 @@ public class BusModel extends Model {
 
     @Column(name = "kilometers", length = 11, nullable = false)
     private int kilometers;
+
+    @OneToMany(mappedBy = "bus")
+    private Set<SlotModel> slots = new HashSet<>();
 
     public BusModel() {
     }
@@ -73,5 +79,21 @@ public class BusModel extends Model {
 
     public void setKilometers(int kilometers) {
         this.kilometers = kilometers;
+    }
+
+    public Set<SlotModel> getSlots() {
+        return slots;
+    }
+
+    public void addSlot(SlotModel slot) {
+        if (slot == null)
+            return;
+
+        slot.setBus(this);
+        slots.add(slot);
+    }
+
+    public void removeSlot(SlotModel slot) {
+        slots.remove(slot);
     }
 }
