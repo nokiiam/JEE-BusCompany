@@ -9,10 +9,10 @@ import java.util.List;
 
 public abstract class Dao<MODEL_TYPE extends Model> {
 
-    protected Class<MODEL_TYPE> clazz;
+    private Class<MODEL_TYPE> clazz;
 
     @PersistenceContext(unitName = "bdd")
-    protected EntityManager entityManager;
+    private EntityManager entityManager;
 
     Dao(Class<MODEL_TYPE> clazz) {
         this.clazz = clazz;

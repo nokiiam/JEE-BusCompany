@@ -4,7 +4,7 @@ public class UserRequest extends AbstractRequest {
 
     private String login;
     private String password;
-    private Integer driver;
+    private String driverCode;
     private int profile;
 
     public UserRequest() {
@@ -26,12 +26,12 @@ public class UserRequest extends AbstractRequest {
         this.password = password;
     }
 
-    public Integer getDriver() {
-        return driver;
+    public String getDriverCode() {
+        return driverCode;
     }
 
-    public void setDriver(Integer driver) {
-        this.driver = driver;
+    public void setDriverCode(String driverCode) {
+        this.driverCode = driverCode;
     }
 
     public int getProfile() {

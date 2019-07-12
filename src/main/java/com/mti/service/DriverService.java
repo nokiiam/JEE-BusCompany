@@ -36,8 +36,4 @@ public class DriverService extends Service<DriverEntity, DriverModel, DriverDao>
         dao.update(model);
         return converter.modelToEntity(model);
     }
-
-    public DriverEntity getByCode(String code) {
-        return converter.modelToEntity(dao.getByCode(code));
-    }
 }

@@ -4,7 +4,7 @@ public class UserResponse extends AbstractResponse {
 
     private String login;
     private String password;
-    private Integer driver;
+    private DriverResponse driver;
     private int profile;
 
     public UserResponse() {
@@ -26,11 +26,11 @@ public class UserResponse extends AbstractResponse {
         this.password = password;
     }
 
-    public Integer getDriver() {
+    public DriverResponse getDriver() {
         return driver;
     }
 
-    public void setDriver(Integer driver) {
+    public void setDriver(DriverResponse driver) {
         this.driver = driver;
     }
 
