@@ -22,11 +22,11 @@ public class StopController implements Controller<StopRequest, StopResponse, Sto
 
     @Override
     public StopService getService() {
-        return null;
+        return service;
     }
 
     @Override
     public ControllerEntityConverter<StopRequest, StopResponse, StopEntity> getConverter() {
-        return null;
+        return converter;
     }
 }
