@@ -23,9 +23,9 @@ public abstract class Dao<ENTITY_TYPE> {
         this.entityManager = entityManager;
     }
 
-    public List findAll() {
+    public List<ENTITY_TYPE> findAll() {
         EntityManager em = getEntityManager();
-        return em.createQuery("FROM " + getEntityClass().getSimpleName()).getResultList();
+        return em.createQuery("FROM " + getEntityClass().getSimpleName(), this.clazz).getResultList();
     }
 
     public ENTITY_TYPE findOne(int id) {
