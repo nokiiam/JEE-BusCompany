@@ -5,10 +5,10 @@ import com.mti.model.data.StopModel;
 import com.mti.service.convertor.EntityModelStopConverter;
 import com.mti.service.data.StopEntity;
 
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
-@RequestScoped
+@Singleton
 public class StopService extends Service<StopEntity, StopModel, StopDao> {
 
     @Inject
