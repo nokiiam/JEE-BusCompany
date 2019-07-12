@@ -14,6 +14,7 @@ public class DriverEntityModelConverter implements EntityModelConverter<DriverEn
         model.setBirthDate(entity.getBirthDate());
         model.setFirstname(entity.getFirstname());
         model.setLastname(entity.getLastname());
+        model.setCode(entity.getCode());
         model.setStatus(entity.getStatus());
         return model;
     }

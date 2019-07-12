@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
 
 public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Model, DAO_TYPE extends Dao<MODEL_TYPE>> {
 
-    private DAO_TYPE dao;
-    private EntityModelConverter<ENTITY_TYPE, MODEL_TYPE> converter;
+    protected DAO_TYPE dao;
+    protected EntityModelConverter<ENTITY_TYPE, MODEL_TYPE> converter;
 
 
     Service(DAO_TYPE dao, EntityModelConverter<ENTITY_TYPE, MODEL_TYPE> converter) {
@@ -36,7 +36,7 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
     public ENTITY_TYPE create(ENTITY_TYPE entity) {
         MODEL_TYPE model = converter.entityToModel(entity);
         dao.create(model);
-        return converter.modelToEntity(model);
+        return converter.modelToEntity(model); //FIXME should take care of fail from dao
     }
 
     public void delete(int id) {
