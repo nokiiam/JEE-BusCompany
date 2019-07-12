@@ -8,6 +8,7 @@ public class LineControllerEntityConverter implements ControllerEntityConverter<
     @Override
     public LineEntity controllerToEntity(LineRequest request) {
         LineEntity stopEntity = new LineEntity();
+
         stopEntity.setNumber(request.getNumber());
         return stopEntity;
     }
@@ -15,6 +16,7 @@ public class LineControllerEntityConverter implements ControllerEntityConverter<
     @Override
     public LineResponse entityToController(LineEntity entity) {
         LineResponse stopResponse = new LineResponse();
+
         stopResponse.setId(entity.getId());
         stopResponse.setNumber(entity.getNumber());
         return stopResponse;

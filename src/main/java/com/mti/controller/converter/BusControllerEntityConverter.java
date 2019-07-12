@@ -8,6 +8,7 @@ public class BusControllerEntityConverter implements ControllerEntityConverter<B
     @Override
     public BusEntity controllerToEntity(BusRequest request) {
         BusEntity stopEntity = new BusEntity();
+
         stopEntity.setBrand(request.getBrand());
         stopEntity.setCapacity(request.getCapacity());
         stopEntity.setKilometers(request.getKilometers());
@@ -19,6 +20,7 @@ public class BusControllerEntityConverter implements ControllerEntityConverter<B
     @Override
     public BusResponse entityToController(BusEntity entity) {
         BusResponse stopResponse = new BusResponse();
+
         stopResponse.setId(entity.getId());
         stopResponse.setBrand(entity.getBrand());
         stopResponse.setCapacity(entity.getCapacity());

@@ -8,6 +8,7 @@ public class StopControllerEntityConverter implements ControllerEntityConverter<
     @Override
     public StopEntity controllerToEntity(StopRequest request) {
         StopEntity entity = new StopEntity();
+
         entity.setName(request.getName());
         return entity;
     }
@@ -15,6 +16,7 @@ public class StopControllerEntityConverter implements ControllerEntityConverter<
     @Override
     public StopResponse entityToController(StopEntity entity) {
         StopResponse response = new StopResponse();
+
         response.setId(entity.getId());
         response.setName(entity.getName());
         return response;

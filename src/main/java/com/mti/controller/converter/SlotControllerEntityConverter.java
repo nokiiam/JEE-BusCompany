@@ -23,28 +23,33 @@ public class SlotControllerEntityConverter implements ControllerEntityConverter<
     @Inject
     LineService lineService;
 
+    @Inject
+    BusControllerEntityConverter busConverter;
+
+    @Inject
+    DriverControllerEntityConverter driverConverter;
+
+    @Inject
+    LineControllerEntityConverter lineConverter;
+
     @Override
     public SlotEntity controllerToEntity(SlotRequest request) {
-        BusEntity busEntity = busService.getById(request.getBus());
-        if (busEntity == null)
-            return null;
-
-        DriverEntity driverEntity = driverService.getById(request.getBus());
-        if (driverEntity == null)
-            return null;
-
-        LineEntity lineEntity = lineService.getById(request.getLine());
-        if (lineEntity == null)
-            return null;
-
         SlotEntity slotEntity = new SlotEntity();
 
         slotEntity.setDate(request.getDate());
         slotEntity.setMorning(request.getMorning());
-        slotEntity.setBus(busEntity);
-        slotEntity.setDriver(driverEntity);
-        slotEntity.setLine(lineEntity);
 
+        BusEntity bus = new BusEntity();
+        bus.setId(request.getBus());
+        slotEntity.setBus(bus);
+
+        DriverEntity driver = new DriverEntity();
+        driver.setId(request.getDriver());
+        slotEntity.setDriver(driver);
+
+        LineEntity line = new LineEntity();
+        line.setId(request.getLine());
+        slotEntity.setLine(line);
         return slotEntity;
     }
 
@@ -55,9 +60,9 @@ public class SlotControllerEntityConverter implements ControllerEntityConverter<
         slotResponse.setId(entity.getId());
         slotResponse.setDate(entity.getDate());
         slotResponse.setMorning(entity.getMorning());
-        slotResponse.setBus(entity.getBus().getId());
-        slotResponse.setDriver(entity.getDriver().getId());
-        slotResponse.setLine(entity.getLine().getId());
+        slotResponse.setBus(busConverter.entityToController(entity.getBus()));
+        slotResponse.setDriver(driverConverter.entityToController(entity.getDriver()));
+        slotResponse.setLine(lineConverter.entityToController(entity.getLine()));
 
         return slotResponse;
     }

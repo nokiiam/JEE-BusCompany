@@ -2,8 +2,6 @@ package com.mti.controller.converter;
 
 import com.mti.controller.data.LineStopRequest;
 import com.mti.controller.data.LineStopResponse;
-import com.mti.service.LineService;
-import com.mti.service.StopService;
 import com.mti.service.data.LineEntity;
 import com.mti.service.data.LineStopEntity;
 import com.mti.service.data.StopEntity;
@@ -13,25 +11,24 @@ import javax.inject.Inject;
 public class LineStopControllerEntityConverter implements ControllerEntityConverter<LineStopRequest, LineStopResponse, LineStopEntity>{
 
     @Inject
-    StopService stopService;
+    StopControllerEntityConverter stopController;
 
     @Inject
-    LineService lineService;
+    LineControllerEntityConverter lineController;
 
     @Override
     public LineStopEntity controllerToEntity(LineStopRequest request) {
-        StopEntity stopEntity = stopService.getById(request.getStop());
-        if (stopEntity == null)
-            return null;
-
-        LineEntity lineEntity = lineService.getById(request.getLine());
-        if (lineEntity == null)
-            return null;
-
         LineStopEntity lineStopEntity = new LineStopEntity();
+
         lineStopEntity.setOrder(request.getOrder());
-        lineStopEntity.setStop(stopEntity);
-        lineStopEntity.setLine(lineEntity);
+
+        StopEntity stop = new StopEntity();
+        stop.setId(request.getStop());
+        lineStopEntity.setStop(stop);
+
+        LineEntity line = new LineEntity();
+        line.setId(request.getLine());
+        lineStopEntity.setLine(line);
 
         return lineStopEntity;
     }
@@ -40,9 +37,9 @@ public class LineStopControllerEntityConverter implements ControllerEntityConver
     public LineStopResponse entityToController(LineStopEntity entity) {
         LineStopResponse lineStopResponse = new LineStopResponse();
 
-        lineStopResponse.setLine(entity.getLine().getId());
         lineStopResponse.setOrder(entity.getOrder());
-        lineStopResponse.setStop(entity.getStop().getId());
+        lineStopResponse.setStop(stopController.entityToController(entity.getStop()));
+        lineStopResponse.setLine(lineController.entityToController(entity.getLine()));
         lineStopResponse.setId(entity.getId());
 
         return lineStopResponse;

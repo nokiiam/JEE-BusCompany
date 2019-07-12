@@ -22,7 +22,9 @@ public class UserControllerEntityConverter implements ControllerEntityConverter<
         userEntity.setLogin(request.getLogin());
         userEntity.setPassword(request.getPassword());
         userEntity.setProfile(request.getProfile());
+
         DriverEntity driver = new DriverEntity();
+
         driver.setCode(request.getDriverCode());
         userEntity.setDriver(driver);
         return userEntity;

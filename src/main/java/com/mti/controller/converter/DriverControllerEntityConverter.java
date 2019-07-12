@@ -8,6 +8,7 @@ public class DriverControllerEntityConverter implements ControllerEntityConverte
     @Override
     public DriverEntity controllerToEntity(DriverRequest request) {
         DriverEntity entity = new DriverEntity();
+
         entity.setBirthDate(request.getBirthDate());
         entity.setFirstname(request.getFirstname());
         entity.setLastname(request.getLastname());
@@ -18,6 +19,7 @@ public class DriverControllerEntityConverter implements ControllerEntityConverte
     @Override
     public DriverResponse entityToController(DriverEntity entity) {
         DriverResponse response = new DriverResponse();
+
         response.setId(entity.getId());
         response.setBirthDate(entity.getBirthDate());
         response.setCode(entity.getCode());
