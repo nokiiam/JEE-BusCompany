@@ -1,9 +1,8 @@
 package com.mti.model.data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "driver")
@@ -22,6 +21,11 @@ public class DriverModel extends Model {
 
     @Column(name = "status", length = 11, nullable = false)
     private int status;
+
+    @OneToMany(mappedBy = "driver")
+    private Set<SlotModel> slots;
+    @OneToOne(mappedBy = "driver")
+    private UserModel user;
 
     public DriverModel() {
     }
@@ -72,5 +76,29 @@ public class DriverModel extends Model {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public UserModel getUser() {
+        return user;
+    }
+
+    public void setUser(UserModel user) {
+        user.setDriver(this);
+        this.user = user;
+    }
+
+    public Set<SlotModel> getSlots() {
+        return slots;
+    }
+
+    public void addSlot(SlotModel slot) {
+        slot.setDriver(this);
+        if (slots.contains(slot))
+            return;
+        slots.add(slot);
+    }
+
+    public void removeSlot(SlotModel slot) {
+        slots.remove(slot);
     }
 }

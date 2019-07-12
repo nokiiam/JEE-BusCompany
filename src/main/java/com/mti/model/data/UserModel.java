@@ -12,7 +12,7 @@ public class UserModel extends Model {
     @Column(name = "password", nullable = false, length = 45)
     private String password;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "driver_code", referencedColumnName = "code")
     private DriverModel driver;
 
@@ -49,7 +49,7 @@ public class UserModel extends Model {
         return driver;
     }
 
-    public void setDriver(DriverModel driver) {
+    void setDriver(DriverModel driver) {
         this.driver = driver;
     }
 
