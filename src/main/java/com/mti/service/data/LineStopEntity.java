@@ -1,5 +1,8 @@
 package com.mti.service.data;
 
+/**
+ * Link a bus stop to a bus line, with the number of the stop relative to the other stops in the line.
+ */
 public class LineStopEntity extends Entity {
 
     private LineEntity line;

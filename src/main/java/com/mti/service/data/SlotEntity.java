@@ -2,6 +2,10 @@ package com.mti.service.data;
 
 import java.util.Date;
 
+
+/**
+ * Represents the shift of a driver for a single day.
+ */
 public class SlotEntity extends Entity {
 
     private Date date;

@@ -1,6 +1,7 @@
 package com.mti.service.data;
 
 public class LineEntity extends Entity {
+
     private Integer number;
 
     public LineEntity() {

@@ -4,6 +4,9 @@ import java.util.Date;
 
 public class BusEntity extends Entity {
 
+    /**
+     * I.e. the licence plate number of the vehicle.
+     */
     private String registration;
     private String brand;
     private Integer capacity;

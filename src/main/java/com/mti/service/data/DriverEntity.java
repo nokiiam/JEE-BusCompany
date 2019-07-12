@@ -4,11 +4,19 @@ import java.util.Date;
 
 public class DriverEntity extends Entity {
 
+    /**
+     * The driver code of the driver, constituted most of the time by the first 4 letters of the last name and the first
+     * 2 letters of the firstname.
+     */
     private String code;
+
+    /**
+     * The driver's status e.g. if he's working, or at rest, and if he's resting for the day or for the week.
+     */
+    private int status;
     private Date birthDate;
     private String firstname;
     private String lastname;
-    private int status;
 
     public DriverEntity() {
     }
