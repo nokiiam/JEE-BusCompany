@@ -53,7 +53,6 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
      * @param entity the entity to create
      * @return return the entity created or null if the creation failed
      */
-
     public ENTITY_TYPE create(ENTITY_TYPE entity) {
         MODEL_TYPE model = converter.entityToModel(entity);
         dao.create(model);
@@ -66,7 +65,6 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
      *
      * @param id id of the entity to delete
      */
-
     public void delete(int id) {
         // TODO handle error
         delete(getById(id));
