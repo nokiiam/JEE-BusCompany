@@ -1,7 +1,21 @@
+# get all
 GET http://localhost:8080/MyBusCompany/api/stops
 
 ###
+# create stop toto, should return 201
+POST http://localhost:8080/MyBusCompany/api/stops
+Content-Type: application/json
 
+{
+  "name": "toto"
+}
+
+> {%
+client.global.set("lastId", response.body.id);
+%}
+
+###
+# should return 409 (ressource already exist)
 POST http://localhost:8080/MyBusCompany/api/stops
 Content-Type: application/json
 
@@ -10,15 +24,16 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/MyBusCompany/api/stops/1
+# get stop created
+GET http://localhost:8080/MyBusCompany/api/stops/{{lastId}}
 
 ###
-
-GET http://localhost:8080/MyBusCompany/api/stops/3
+# Error should return 404
+GET http://localhost:8080/MyBusCompany/api/stops/404
 
 ###
-
-PUT http://localhost:8080/MyBusCompany/api/stops/1
+# update
+PUT http://localhost:8080/MyBusCompany/api/stops/{{lastId}}
 Content-Type: application/json
 
 {
@@ -26,6 +41,27 @@ Content-Type: application/json
 }
 
 ###
+# Error shoudl return 400
+PUT http://localhost:8080/MyBusCompany/api/stops/1
+Content-Type: application/json
+
+{
+  "dereredde": "tata"
+}
+
+###
+# Error should return 404
+PUT http://localhost:8080/MyBusCompany/api/stops/404
+Content-Type: application/json
+
+{
+  "name": "tata"
+}
+
+###
+# should delete element
 DELETE http://localhost:8080/MyBusCompany/api/stops/1
 
 ###
+# Error should return 404
+DELETE http://localhost:8080/MyBusCompany/api/stops/404
