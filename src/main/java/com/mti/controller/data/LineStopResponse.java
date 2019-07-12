@@ -2,26 +2,26 @@ package com.mti.controller.data;
 
 public class LineStopResponse extends AbstractResponse {
 
-    private Integer line;
-    private Integer stop;
+    private LineResponse line;
+    private StopResponse stop;
     private int order;
 
     public LineStopResponse() {
     }
 
-    public Integer getLine() {
+    public LineResponse getLine() {
         return line;
     }
 
-    public void setLine(Integer line) {
+    public void setLine(LineResponse line) {
         this.line = line;
     }
 
-    public Integer getStop() {
+    public StopResponse getStop() {
         return stop;
     }
 
-    public void setStop(Integer stop) {
+    public void setStop(StopResponse stop) {
         this.stop = stop;
     }
 
