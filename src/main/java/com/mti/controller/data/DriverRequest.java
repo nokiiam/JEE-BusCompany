@@ -7,7 +7,7 @@ public class DriverRequest extends Request {
     private String code;
     private String firstname;
     private String lastname;
-    private Date birth_date;
+    private Date birthDate;
     private Integer status;
 
     public DriverRequest() {
@@ -37,12 +37,12 @@ public class DriverRequest extends Request {
         this.lastname = lastname;
     }
 
-    public Date getBirth_date() {
-        return birth_date;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setBirth_date(Date birth_date) {
-        this.birth_date = birth_date;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     public Integer getStatus() {
