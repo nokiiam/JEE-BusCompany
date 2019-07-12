@@ -1,0 +1,31 @@
+GET http://localhost:8080/MyBusCompany/api/stops
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/stops
+Content-Type: application/json
+
+{
+  "name": "toto"
+}
+
+###
+GET http://localhost:8080/MyBusCompany/api/stops/1
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/stops/3
+
+###
+
+PUT http://localhost:8080/MyBusCompany/api/stops/1
+Content-Type: application/json
+
+{
+  "name": "tata"
+}
+
+###
+DELETE http://localhost:8080/MyBusCompany/api/stops/1
+
+###

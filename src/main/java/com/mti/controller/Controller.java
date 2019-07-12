@@ -12,7 +12,8 @@ import javax.ws.rs.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-interface Controller<REQUEST_TYPE extends Request, RESPONSE_TYPE extends Response, ENTITY_TYPE extends Entity, MODEL_TYPE extends Model,
+@Produces("application/json; charset=UTF-8")
+public interface Controller<REQUEST_TYPE extends Request, RESPONSE_TYPE extends Response, ENTITY_TYPE extends Entity, MODEL_TYPE extends Model,
         DAO_TYPE extends Dao<MODEL_TYPE>,
         SERVICE_TYPE extends Service<ENTITY_TYPE, MODEL_TYPE, DAO_TYPE>> {
 
