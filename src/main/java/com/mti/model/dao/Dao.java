@@ -14,9 +14,8 @@ public abstract class Dao<MODEL_TYPE extends Model> {
     @PersistenceContext(unitName = "bdd")
     private EntityManager entityManager;
 
-    Dao(Class<MODEL_TYPE> clazz, EntityManager entityManager) {
+    Dao(Class<MODEL_TYPE> clazz) {
         this.clazz = clazz;
-        this.entityManager = entityManager;
     }
 
     private Class<MODEL_TYPE> getEntityClass() {

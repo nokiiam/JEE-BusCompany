@@ -12,7 +12,8 @@ import javax.ws.rs.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE extends AbstractResponse, ENTITY_TYPE extends Entity, MODEL_TYPE extends Model,
+@Produces("application/json; charset=UTF-8")
+public interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE extends AbstractResponse, ENTITY_TYPE extends Entity, MODEL_TYPE extends Model,
         DAO_TYPE extends Dao<MODEL_TYPE>,
         SERVICE_TYPE extends Service<ENTITY_TYPE, MODEL_TYPE, DAO_TYPE>> {
 
@@ -22,14 +23,6 @@ interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE extends
 
     @GET
     default List<RESPONSE_TYPE> getList() {
-       /*List<RESPONSE_TYPE> responses = new ArrayList<>();
-        getService().getList().forEach(entity ->{responses.add(getConverter().entityToController(entity));});
-        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        try {
-            return javax.ws.rs.core.AbstractResponse.ok(ow.writeValueAsString(responses)).build();
-        } catch (Exception e) {
-            return javax.ws.rs.core.AbstractResponse.serverError().build();
-        }*/
         return getService().getList()
                 .stream()
                 .map(getConverter()::entityToController)
