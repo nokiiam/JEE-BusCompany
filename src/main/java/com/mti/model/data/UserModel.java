@@ -49,7 +49,7 @@ public class UserModel extends Model {
         return driver;
     }
 
-    void setDriver(DriverModel driver) {
+    public void setDriver(DriverModel driver) {
         this.driver = driver;
     }
 
