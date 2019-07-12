@@ -9,6 +9,7 @@ import com.mti.service.Service;
 import com.mti.service.data.Entity;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,8 +43,16 @@ public interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE 
      */
     @GET
     @Path("/{id}")
-    default RESPONSE_TYPE getById(@PathParam("id") final int id) {
-        return getConverter().entityToController(getService().getById(id));//TODO : render response
+    default Response getById(@PathParam("id") final int id) {
+        ENTITY_TYPE entity = getService().getById(id);
+        if (entity == null)
+            return Response
+                    .status(404)
+                    .build();
+        return Response
+                .status(200)
+                .entity(getConverter().entityToController(getService().getById(id)))
+                .build();
     }
 
     /**
@@ -54,9 +63,25 @@ public interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE 
      * @return the created element or null if the creation failed
      */
     @POST
-    default RESPONSE_TYPE create(REQUEST_TYPE request) {
-        ENTITY_TYPE entity = getConverter().controllerToEntity(request);
-        return getConverter().entityToController(getService().create(entity));//TODO : render response
+    default Response create(REQUEST_TYPE request) {
+        ENTITY_TYPE entity;
+
+        try {
+            entity = getConverter().controllerToEntity(request);
+        } catch (Exception e) {
+            return Response.status(404).build();
+        }
+        try {
+            entity = getService().create(entity);
+        } catch (Exception e) {
+            return Response
+                    .status(409).build();
+        }
+
+        return Response
+                .status(201)
+                .entity(getConverter().entityToController(entity))
+                .build();
     }
 
     /**
@@ -67,8 +92,13 @@ public interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE 
      */
     @DELETE
     @Path("/{id}")
-    default void delete(@PathParam("id") int id) {
-        getService().delete(id);
+    default Response delete(@PathParam("id") int id) {
+        try {
+            getService().delete(id);
+        } catch (Exception e) {
+            return Response.status(404).build();
+        }
+        return Response.status(200).build();
     }
 
     /**
@@ -81,8 +111,27 @@ public interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE 
      */
     @PUT
     @Path("/{id}")
-    default RESPONSE_TYPE update(@PathParam("id") int id, REQUEST_TYPE request) {
-        ENTITY_TYPE entity = getConverter().controllerToEntity(request);
-        return getConverter().entityToController(getService().update(id, entity));
+    default Response update(@PathParam("id") int id, REQUEST_TYPE request) {
+
+        ENTITY_TYPE entity;
+
+        try {
+            entity = getConverter().controllerToEntity(request);
+        } catch (Exception e) {
+            return Response.status(404).build();
+        }
+        try {
+            entity = getService().update(id, entity);
+        } catch (Exception e) {
+            return Response
+                    .status(409).build();
+        }
+        if (entity == null)
+            return Response.status(404).build();
+
+        return Response
+                .status(200)
+                .entity(getConverter().entityToController(entity))
+                .build();
     }
 }

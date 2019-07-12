@@ -4,6 +4,7 @@ import com.mti.model.data.Model;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.RollbackException;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -28,17 +29,17 @@ public abstract class Dao<MODEL_TYPE extends Model> {
     }
 
     @Transactional
-    public void create(MODEL_TYPE entity) {
+    public void create(MODEL_TYPE entity) throws RollbackException {
         entityManager.persist(entity);
     }
 
     @Transactional
-    public void update(MODEL_TYPE entity) {
-        entityManager.merge(entity);
+    public MODEL_TYPE update(MODEL_TYPE entity) throws RollbackException {
+        return entityManager.merge(entity);
     }
 
     @Transactional
-    public void remove(MODEL_TYPE entity) {
+    public void remove(MODEL_TYPE entity) throws RollbackException {
         entityManager.remove(entityManager.contains(entity) ? entity : entityManager.merge(entity));
     }
 }

@@ -90,14 +90,12 @@ public abstract class Service<ENTITY_TYPE extends Entity, MODEL_TYPE extends Mod
      * @return the new entity or null if the update failed
      */
     public ENTITY_TYPE update(int id, ENTITY_TYPE entity) {
-        // TODO handle error
-        ENTITY_TYPE lastEntity = getById(id);
-        if (lastEntity == null)
+        MODEL_TYPE model = dao.getById(id);
+        if (model == null)
             return null;
 
-        MODEL_TYPE model = converter.entityToModel(entity);
+        model = converter.entityToModel(entity);
         model.setId(id);
-        dao.update(model);
-        return converter.modelToEntity(model);
+        return converter.modelToEntity(dao.update(model));
     }
 }
