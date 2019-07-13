@@ -71,7 +71,7 @@ PUT http://localhost:8080/MyBusCompany/api/buses/{{lastId}}
 Content-Type: application/json
 
 {
-  "registration": "BA-323-BE",
+  "registration": "BA-373-BE",
   "brand": "Volvo",
   "capacity": 80,
   "kilometers": 1000,
@@ -93,7 +93,11 @@ PUT http://localhost:8080/MyBusCompany/api/buses/404
 Content-Type: application/json
 
 {
-  "name": "tttxtxtt"
+  "registration": "BA-373-BE",
+  "brand": "Volvo",
+  "capacity": 80,
+  "kilometers": 1000,
+  "releaseYear": "2010-01-01"
 }
 
 ###

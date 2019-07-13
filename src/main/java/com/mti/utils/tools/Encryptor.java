@@ -17,9 +17,9 @@ public abstract class Encryptor {
         return new String(md.digest(convertme));
     }
 
-    public static String getRandomToken() {
+    public static String getRandomToken(int length) {
         SecureRandom random = new SecureRandom();
-        byte[] bytes = new byte[20];
+        byte[] bytes = new byte[length];
         random.nextBytes(bytes);
         return Arrays.toString(bytes);
     }

@@ -13,7 +13,7 @@ public abstract class Dao<MODEL_TYPE extends Model> {
     private Class<MODEL_TYPE> clazz;
 
     @PersistenceContext(unitName = "bdd")
-    private EntityManager entityManager;
+    protected EntityManager entityManager;
 
     Dao(Class<MODEL_TYPE> clazz) {
         this.clazz = clazz;

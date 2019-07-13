@@ -49,6 +49,7 @@ public interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE 
         if (entity == null)
             return Response
                     .status(404)
+                    .entity("Entity not found")
                     .build();
         return Response
                 .status(200)
@@ -70,15 +71,23 @@ public interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE 
         try {
             entity = getConverter().controllerToEntity(request);
         } catch (Exception e) {
-            return Response.status(404).build();
+            return Response
+                    .status(404)
+                    .entity(e.getMessage())
+                    .build();
         }
         try {
             entity = getService().create(entity);
         } catch (ConstraintViolationException | IllegalArgumentException e) {
-            return Response.status(400).build();
+            return Response
+                    .status(400)
+                    .entity(e.getMessage())
+                    .build();
         } catch (Exception e) {
             return Response
-                    .status(409).build();
+                    .status(409)
+                    .entity(e.getMessage())
+                    .build();
         }
 
         return Response
@@ -99,7 +108,10 @@ public interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE 
         try {
             getService().delete(id);
         } catch (Exception e) {
-            return Response.status(404).build();
+            return Response
+                    .status(404)
+                    .entity(e.getMessage())
+                    .build();
         }
         return Response.status(200).build();
     }
@@ -121,16 +133,24 @@ public interface Controller<REQUEST_TYPE extends AbstractRequest, RESPONSE_TYPE 
         try {
             entity = getConverter().controllerToEntity(request);
         } catch (Exception e) {
-            return Response.status(404).build();
+            return Response
+                    .status(404)
+                    .entity(e.getMessage())
+                    .build();
         }
         try {
             entity = getService().update(id, entity);
         } catch (Exception e) {
             return Response
-                    .status(409).build();
+                    .status(409)
+                    .entity(e.getMessage())
+                    .build();
         }
         if (entity == null)
-            return Response.status(404).build();
+            return Response
+                    .status(404)
+                    .entity("Entity not found")
+                    .build();
 
         return Response
                 .status(200)

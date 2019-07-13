@@ -13,7 +13,7 @@ public class UserModel extends Model {
     private String password;
 
     @OneToOne
-    @JoinColumn(name = "driver_code", referencedColumnName = "code")
+    @JoinColumn(name = "driver_id", referencedColumnName = "id")
     private DriverModel driver;
 
     @Column(name = "profile", nullable = false, length = 11)

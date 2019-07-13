@@ -1,8 +1,6 @@
 package com.mti.utils.setup;
 
-import com.mti.controller.BusController;
-import com.mti.controller.LineController;
-import com.mti.controller.StopController;
+import com.mti.controller.*;
 import com.mti.controller.filter.RestCorsFilter;
 
 import javax.inject.Singleton;
@@ -24,6 +22,10 @@ public class API extends Application {
         resources.add(RestCorsFilter.class);
         resources.add(LineController.class);
         resources.add(BusController.class);
+        resources.add(DriverController.class);
+        resources.add(LineStopController.class);
+        resources.add(SlotController.class);
+        resources.add(UserController.class);
         return resources;
     }
 }

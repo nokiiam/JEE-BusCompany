@@ -11,6 +11,7 @@ public class BusEntityModelConverter implements EntityModelConverter<BusEntity, 
     @Override
     public BusModel entityToModel(BusEntity request) {
         BusModel model = new BusModel();
+        model.setId(request.getId());
         model.setBrand(BusBrand.valueOf(request.getBrand()));
         model.setCapacity(request.getCapacity());
         model.setKilometers(request.getKilometers());

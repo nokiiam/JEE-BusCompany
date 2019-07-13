@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class DriverRequest extends AbstractRequest {
 
-    private String code;
     private String firstname;
     private String lastname;
     private Date birthDate;

@@ -21,6 +21,8 @@ public class DriverEntityModelConverter implements EntityModelConverter<DriverEn
         model.setLastname(entity.getLastname());
         model.setCode(entity.getCode());
         model.setStatus(DriverStatus.fromInteger(entity.getStatus()));
+        if (entity.getStatus() >= 0 && model.getStatus() == null)
+            throw new IllegalArgumentException("Status should be between 0 and 4");
         return model;
     }
 
@@ -39,8 +41,10 @@ public class DriverEntityModelConverter implements EntityModelConverter<DriverEn
     private boolean checkValidDate(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
-        Date maxValue = new Date(calendar.get(Calendar.YEAR) - 18);
-        Date minValue = new Date(1900);
+        calendar.set(calendar.get(Calendar.YEAR) - 18, Calendar.JANUARY, 0, 0, 0);
+        Date maxValue = calendar.getTime();
+        calendar.set(Calendar.YEAR, 1900);
+        Date minValue = calendar.getTime();
         return date.before(maxValue) && date.after(minValue);
     }
 }

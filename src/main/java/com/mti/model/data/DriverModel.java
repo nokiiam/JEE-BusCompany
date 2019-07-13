@@ -1,20 +1,21 @@
 package com.mti.model.data;
 
+import org.hibernate.annotations.NaturalId;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "driver")
 public class DriverModel extends Model {
-    @Column(name = "code", length = 6, unique = true, nullable = false)
-    private String code;
 
     @Column(name = "birth_date", nullable = false)
-
     private Date birthDate;
+
+    @Column(name = "code", length = 6, unique = true, nullable = false)
+    @NaturalId
+    private String code;
 
     @Column(name = "firstname", length = 45, nullable = false)
     @Size(min = 2)
@@ -28,21 +29,20 @@ public class DriverModel extends Model {
     @Enumerated(EnumType.ORDINAL)
     private DriverStatus status;
 
-    @OneToMany(mappedBy = "driver")
+    /*@OneToMany(mappedBy = "driver")
     private Set<SlotModel> slots = new HashSet<>();
 
     @OneToOne(mappedBy = "driver")
-    private UserModel user;
+    private UserModel user;*/
 
-    public DriverModel() {
+    @Override
+    public Integer getId() {
+        return super.getId();
     }
 
-    public DriverModel(String code, Date birthDate, String firstname, String lastname, DriverStatus status) {
-        this.code = code;
-        this.birthDate = birthDate;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.status = status;
+    @Override
+    public void setId(Integer id) {
+        super.setId(id);
     }
 
     public String getCode() {
@@ -85,13 +85,17 @@ public class DriverModel extends Model {
         this.status = status;
     }
 
-    public UserModel getUser() {
+    /*public UserModel getUser() {
         return user;
     }
 
     public void setUser(UserModel user) {
         user.setDriver(this);
         this.user = user;
+    }
+
+    public void setSlots(Set<SlotModel> slots) {
+        this.slots = slots;
     }
 
     public Set<SlotModel> getSlots() {
@@ -108,5 +112,5 @@ public class DriverModel extends Model {
 
     public void removeSlot(SlotModel slot) {
         slots.remove(slot);
-    }
+    }*/
 }

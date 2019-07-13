@@ -1,0 +1,121 @@
+# get all
+GET http://localhost:8080/MyBusCompany/api/drivers
+
+###
+# create line 1, should return 201
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname": "Jean",
+  "lastname": "Kevi",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+> {%
+client.global.set("lastId", response.body.id);
+%}
+
+###
+# create line 1, should return 201, code should be different
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname": "Jean",
+  "lastname": "Kevin",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+
+###
+# should return 400 (too old)
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname": "Jean",
+  "lastname": "Kevin",
+  "birthDate": "1897-20-04",
+  "status": 0
+}
+
+###
+# should return 400 (too young)
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname": "Jean",
+  "lastname": "Kevin",
+  "birthDate": "2010-20-04",
+  "status": 0
+}
+
+###
+# should return 400 (invalid status)
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname": "Jean",
+  "lastname": "Kevin",
+  "birthDate": "1997-20-04",
+  "status": 7
+}
+
+###
+# get line created
+GET http://localhost:8080/MyBusCompany/api/drivers/{{lastId}}
+
+###
+# Error should return 404
+GET http://localhost:8080/MyBusCompany/api/drivers/404
+
+###
+# update
+PUT http://localhost:8080/MyBusCompany/api/drivers/{{lastId}}
+Content-Type: application/json
+
+{
+  "firstname": "Juste",
+  "lastname": "LebLanc",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+###
+# Error shoudl return 400
+PUT http://localhost:8080/MyBusCompany/api/drivers/{{lastId}}
+Content-Type: application/json
+
+{
+  "firstnddsame": "Juste",
+  "lastname": "LebLanc",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+###
+# Error should return 404
+PUT http://localhost:8080/MyBusCompany/api/drivers/404
+Content-Type: application/json
+
+{
+  "firstname": "Juste",
+  "lastname": "LebLanc",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+###
+# should delete element
+DELETE http://localhost:8080/MyBusCompany/api/drivers/{{lastId}}
+
+###
+# Error should return 404
+DELETE http://localhost:8080/MyBusCompany/api/drivers/404
+
+###
