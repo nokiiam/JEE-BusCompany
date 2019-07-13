@@ -34,7 +34,7 @@ public class DriverEntityModelConverter implements EntityModelConverter<DriverEn
         entity.setFirstname(model.getFirstname());
         entity.setLastname(model.getLastname());
         entity.setCode(model.getCode());
-        entity.setStatus(model.getStatus().ordinal());
+        entity.setStatus(model.getStatus() != null ? model.getStatus().ordinal() : null);
         return entity;
     }
 

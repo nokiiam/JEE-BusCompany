@@ -57,7 +57,7 @@ POST http://localhost:8080/MyBusCompany/api/slots
 Content-Type: application/json
 
 {
-  "date": "2019-13-07",
+  "date": "2019-13-16",
   "morning": true,
   "driver": {{driverId}},
   "bus": {{busId}},

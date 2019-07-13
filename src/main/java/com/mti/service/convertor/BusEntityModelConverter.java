@@ -24,7 +24,7 @@ public class BusEntityModelConverter implements EntityModelConverter<BusEntity, 
     public BusEntity modelToEntity(BusModel entity) {
         BusEntity stopResponse = new BusEntity();
         stopResponse.setId(entity.getId());
-        stopResponse.setBrand(entity.getBrand().toString());
+        stopResponse.setBrand(entity.getBrand() != null ? entity.getBrand().toString() : null);
         stopResponse.setCapacity(entity.getCapacity());
         stopResponse.setKilometers(entity.getKilometers());
         stopResponse.setRegistration(entity.getRegistration());
