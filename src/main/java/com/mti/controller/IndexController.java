@@ -7,10 +7,6 @@ import javax.inject.Singleton;
 @Named
 public class IndexController {
     public String hello() {
-        return "Xylophone";
-    }
-
-    public String user() {
-        return "Prout";
+        return "Welcome Bus Company";
     }
 }

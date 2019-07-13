@@ -40,34 +40,6 @@
         </p:panelGrid>
     </h:form>
 
-    <h:dataTable value="#{stopController.getList()}" var="o"
-                 styleClass="order-table"
-                 headerClass="order-table-header"
-                 rowClasses="order-table-odd-row,order-table-even-row"
-    >
-
-        <h:column>
-            <f:facet name="header">ID</f:facet>
-            #{o.getId()}
-        </h:column>
-
-        <h:column>
-            <f:facet name="header">Stop Name</f:facet>
-            #{o.getName()}
-        </h:column>
-
-        <h:column>
-            <f:facet name="header">Modify</f:facet>
-            <p:commandButton action="updatestops?includeViewParams=true" icon="pi pi-cog"/>
-        </h:column>
-
-        <h:column>
-            <f:facet name="header">Delete</f:facet>
-            <p:commandButton action="#{stopController.delete(o.getId())}" icon="pi pi-times-circle"/>
-        </h:column>
-
-    </h:dataTable>
-
 
 </h:body>
 </html>
