@@ -39,8 +39,8 @@ POST http://localhost:8080/MyBusCompany/api/linestops
 Content-Type: application/json
 
 {
-  "line": 1,
-  "stop": 3,
+  "line": {{lineId}},
+  "stop": {{stopId}},
   "order": 5
 }
 

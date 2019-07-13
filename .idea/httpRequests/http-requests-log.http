@@ -1,3 +1,356 @@
+GET http://localhost:8080/MyBusCompany/api/linestops
+
+<> 2019-07-13T010628.200.json
+
+###
+
+DELETE http://localhost:8080/MyBusCompany/api/linestops/404
+
+###
+
+DELETE http://localhost:8080/MyBusCompany/api/linestops/4
+
+###
+
+PUT http://localhost:8080/MyBusCompany/api/linestops/404
+Content-Type: application/json
+
+{
+  "line": 1,
+  "stop": 3,
+  "order": 5
+}
+
+<> 2019-07-13T010620.404.json
+
+###
+
+PUT http://localhost:8080/MyBusCompany/api/linestops/4
+Content-Type: application/json
+
+{
+  "dereredde": "tata"
+}
+
+<> 2019-07-13T010618.400.html
+
+###
+
+PUT http://localhost:8080/MyBusCompany/api/linestops/4
+Content-Type: application/json
+
+{
+  "line": 3,
+  "stop": 3,
+  "order": 1
+}
+
+<> 2019-07-13T010613.200.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/linestops/404
+
+<> 2019-07-13T010608.404.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/linestops/4
+
+<> 2019-07-13T010605.200.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/linestops
+Content-Type: application/json
+
+{
+  "line": 5,
+  "stop": 5,
+  "order": 5
+}
+
+<> 2019-07-13T010535.201.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "morning": true,
+  "driver": 4,
+  "bus": 1,
+  "line": 5
+}
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "morning": true,
+  "driver": 4,
+  "bus": 1,
+  "line": 5
+}
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "morning": true,
+  "driver": 4,
+  "bus": 1,
+  "line": 5
+}
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "morning": true,
+  "driver": 4,
+  "bus": 1,
+  "line": 5
+}
+
+<> 2019-07-13T124057.409.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "morning": true,
+  "driver": 4,
+  "bus": 1,
+  "line": 5
+}
+
+<> 2019-07-13T123938.409.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "morning": true,
+  "driver": 4,
+  "bus": 1,
+  "line": 5
+}
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "morning": true,
+  "driver": 4,
+  "bus": 1,
+  "line": 5
+}
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "morning": true,
+  "driver": 4,
+  "bus": 1,
+  "line": 5
+}
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "morning": true,
+  "driver": 4,
+  "bus": 1,
+  "line": 5
+}
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "morning": true,
+  "driver": 4,
+  "bus": 1,
+  "line": 5
+}
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "morning": true,
+  "driver": 4,
+  "bus": 1,
+  "line": 5
+}
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "morning": true,
+  "driver": 4,
+  "bus": 1,
+  "line": 5
+}
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "morning": true,
+  "driver": 4,
+  "bus": 1,
+  "line": 5,
+}
+
+<> 2019-07-13T122618.400.html
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "isMorning": true,
+  "driver": 4,
+  "bus": 1,
+  "line": 5,
+}
+
+<> 2019-07-13T122109.400.html
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "isMorning": true,
+  "driver": 4,
+  "bus": 1,
+  "line": 5,
+}
+
+<> 2019-07-13T121946.400.html
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname": "J2E",
+  "lastname": "Kevi",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T121941.201.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/buses
+Content-Type: application/json
+
+{
+  "registration": "BA-393-BE",
+  "brand": "Volvo",
+  "capacity": 80,
+  "kilometers": 1000,
+  "releaseYear": "2010-01-01"
+}
+
+<> 2019-07-13T121935.201.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/buses
+Content-Type: application/json
+
+{
+  "registration": "BA-323-BE",
+  "brand": "Volv",
+  "capacity": 80,
+  "kilometers": 1000,
+  "releaseYear": "2010-01-01"
+}
+
+<> 2019-07-13T121926.400.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/lines
+Content-Type: application/json
+
+{
+  "number": 4
+}
+
+<> 2019-07-13T121922.201.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/lines
+Content-Type: application/json
+
+{
+  "number": 3
+}
+
+<> 2019-07-13T121913.409.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/slots
+
+<> 2019-07-13T121910.200.json
+
+###
+
 DELETE http://localhost:8080/MyBusCompany/api/linestops/404
 
 ###
@@ -208,330 +561,6 @@ Content-Type: application/json
   "stop":4,
   "order": 5
 }
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/linestops
-Content-Type: application/json
-
-{
-  "line": 2,
-  "stop":4,
-  "order": 5
-}
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/linestops
-Content-Type: application/json
-
-{
-  "line": 2,
-  "stop":4,
-  "order": 5
-}
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/stops
-Content-Type: application/json
-
-{
-  "name": "tult"
-}
-
-<> 2019-07-13T114616.201.json
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/lines
-Content-Type: application/json
-
-{
-  "number": 2
-}
-
-<> 2019-07-13T114603.201.json
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/linestops
-Content-Type: application/json
-
-{
-  "line": 1,
-  "stop":3,
-  "order": 5
-}
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/linestops
-Content-Type: application/json
-
-{
-  "line": 1,
-  "stop":3,
-  "order": 5
-}
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/linestops
-Content-Type: application/json
-
-{
-  "line": 1,
-  "stop":3,
-  "order": 5
-}
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/linestops
-Content-Type: application/json
-
-{
-  "line": 1,
-  "stop":3,
-  "order": 5
-}
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/linestops
-Content-Type: application/json
-
-{
-  "line": 1,
-  "stop":3,
-  "order": 5
-}
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/linestops
-Content-Type: application/json
-
-{
-  "line": 1,
-  "stop":3,
-  "order": 5
-}
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/stops
-Content-Type: application/json
-
-{
-  "name": "toto"
-}
-
-<> 2019-07-13T113719.201.json
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/lines
-Content-Type: application/json
-
-{
-  "number": 1
-}
-
-<> 2019-07-13T113715.201.json
-
-###
-
-GET http://localhost:8080/MyBusCompany/api/linestops
-
-<> 2019-07-13T113709.200.json
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/drivers
-Content-Type: application/json
-
-{
-  "firstname": "J2E",
-  "lastname": "Kevi",
-  "birthDate": "1997-20-04",
-  "status": 0
-}
-
-<> 2019-07-13T112623.201.json
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/drivers
-Content-Type: application/json
-
-{
-  "firstname": "J",
-  "lastname": "Kevi",
-  "birthDate": "1997-20-04",
-  "status": 0
-}
-
-<> 2019-07-13T112557.400.json
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/drivers
-Content-Type: application/json
-
-{
-  "firstname": "J",
-  "lastname": "Kevi",
-  "birthDate": "1997-20-04",
-  "status": 0
-}
-
-<> 2019-07-13T112358.409.json
-
-###
-
-DELETE http://localhost:8080/MyBusCompany/api/drivers/404
-
-###
-
-DELETE http://localhost:8080/MyBusCompany/api/drivers/1
-
-###
-
-PUT http://localhost:8080/MyBusCompany/api/drivers/404
-Content-Type: application/json
-
-{
-  "firstname": "Juste",
-  "lastname": "LebLanc",
-  "birthDate": "1997-20-04",
-  "status": 0
-}
-
-<> 2019-07-13T112154.404.json
-
-###
-
-PUT http://localhost:8080/MyBusCompany/api/drivers/1
-Content-Type: application/json
-
-{
-  "firstnddsame": "Juste",
-  "lastname": "LebLanc",
-  "birthDate": "1997-20-04",
-  "status": 0
-}
-
-<> 2019-07-13T112152.400.html
-
-###
-
-PUT http://localhost:8080/MyBusCompany/api/drivers/1
-Content-Type: application/json
-
-{
-  "firstname": "Juste",
-  "lastname": "LebLanc",
-  "birthDate": "1997-20-04",
-  "status": 0
-}
-
-<> 2019-07-13T112149.200.json
-
-###
-
-GET http://localhost:8080/MyBusCompany/api/drivers/404
-
-<> 2019-07-13T112146.404.json
-
-###
-
-GET http://localhost:8080/MyBusCompany/api/drivers/1
-
-<> 2019-07-13T112143.200.json
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/drivers
-Content-Type: application/json
-
-{
-  "firstname": "Jean",
-  "lastname": "Kevin",
-  "birthDate": "1997-20-04",
-  "status": 7
-}
-
-<> 2019-07-13T112140.400.json
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/drivers
-Content-Type: application/json
-
-{
-  "firstname": "Jean",
-  "lastname": "Kevin",
-  "birthDate": "2010-20-04",
-  "status": 0
-}
-
-<> 2019-07-13T112138.400.json
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/drivers
-Content-Type: application/json
-
-{
-  "firstname": "Jean",
-  "lastname": "Kevin",
-  "birthDate": "1897-20-04",
-  "status": 0
-}
-
-<> 2019-07-13T112135.400.json
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/drivers
-Content-Type: application/json
-
-{
-  "firstname": "Jean",
-  "lastname": "Kevin",
-  "birthDate": "1997-20-04",
-  "status": 0
-}
-
-<> 2019-07-13T112131.201.json
-
-###
-
-GET http://localhost:8080/MyBusCompany/api/drivers
-
-<> 2019-07-13T112128.200.json
-
-###
-
-POST http://localhost:8080/MyBusCompany/api/drivers
-Content-Type: application/json
-
-{
-  "firstname": "Jean",
-  "lastname": "Kevi",
-  "birthDate": "1997-20-04",
-  "status": 0
-}
-
-<> 2019-07-13T112123.201.json
-
-###
-
-GET http://localhost:8080/MyBusCompany/api/drivers
-
-<> 2019-07-13T112120.200.json
 
 ###
 

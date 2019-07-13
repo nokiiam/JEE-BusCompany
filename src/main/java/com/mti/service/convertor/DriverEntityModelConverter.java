@@ -12,7 +12,7 @@ import java.util.Date;
 public class DriverEntityModelConverter implements EntityModelConverter<DriverEntity, DriverModel> {
     @Override
     public DriverModel entityToModel(DriverEntity entity) throws IllegalArgumentException {
-        if (!checkValidDate(entity.getBirthDate()))
+        if (entity.getBirthDate() != null && !checkValidDate(entity.getBirthDate()))
             throw new IllegalArgumentException("Birthday should be after 1900 and driver should be major");
         DriverModel model = new DriverModel();
         model.setId(entity.getId());
@@ -21,7 +21,7 @@ public class DriverEntityModelConverter implements EntityModelConverter<DriverEn
         model.setLastname(entity.getLastname());
         model.setCode(entity.getCode());
         model.setStatus(DriverStatus.fromInteger(entity.getStatus()));
-        if (entity.getStatus() >= 0 && model.getStatus() == null)
+        if (entity.getStatus() != null && entity.getStatus() >= 0 && model.getStatus() == null)
             throw new IllegalArgumentException("Status should be between 0 and 4");
         return model;
     }

@@ -11,7 +11,9 @@ import com.mti.service.data.LineEntity;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.Response;
 
 
 /**
@@ -20,7 +22,10 @@ import javax.ws.rs.Path;
  */
 @RequestScoped
 @Path("/lines")
+@Named
 public class LineController implements Controller<LineRequest, LineResponse, LineEntity, LineModel, LineDao, LineService> {
+
+    private Integer number;
 
     @Inject
     private LineService service;
@@ -35,5 +40,19 @@ public class LineController implements Controller<LineRequest, LineResponse, Lin
     @Override
     public ControllerEntityConverter<LineRequest, LineResponse, LineEntity> getConverter() {
         return converter;
+    }
+
+    public Response formCreate() {
+        LineRequest stopRequest = new LineRequest();
+        stopRequest.setNumber(number);
+        return create(stopRequest);
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 }

@@ -1,0 +1,122 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection).
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+GET http://localhost:8080/MyBusCompany/api/slots
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/lines
+Content-Type: application/json
+
+{
+  "number": 4
+}
+
+> {%
+client.global.set("lineId", response.body.id);
+%}
+
+###
+POST http://localhost:8080/MyBusCompany/api/buses
+Content-Type: application/json
+
+{
+  "registration": "BA-393-BE",
+  "brand": "Volvo",
+  "capacity": 80,
+  "kilometers": 1000,
+  "releaseYear": "2010-01-01"
+}
+
+> {%
+client.global.set("busId", response.body.id);
+%}
+
+###
+# create stop toto, should return 201
+# create line 1, should return 201
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname": "J2E",
+  "lastname": "Kevi",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+> {%
+client.global.set("driverId", response.body.id);
+%}
+
+###
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "morning": true,
+  "driver": {{driverId}},
+  "bus": {{busId}},
+  "line": {{lineId}}
+}
+
+> {%
+client.global.set("lastId", response.body.id);
+%}
+
+###
+# get bus created
+GET http://localhost:8080/MyBusCompany/api/slots/{{lastId}}
+
+###
+# Error should return 404
+GET http://localhost:8080/MyBusCompany/api/slots/404
+
+###
+# update
+PUT http://localhost:8080/MyBusCompany/api/slots/{{lastId}}
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "isMorning": false,
+  "driver": {{driverId}},
+  "bus": {{busId}},
+  "line": {{lineId}}
+}
+
+###
+# Error shoudl return 400
+PUT http://localhost:8080/MyBusCompany/api/slots/{{lastId}}
+Content-Type: application/json
+
+{
+  "dereredde": "tata"
+}
+
+###
+# Error should return 404
+PUT http://localhost:8080/MyBusCompany/api/slots/404
+Content-Type: application/json
+
+{
+  "date": "2019-13-07",
+  "isMorning": true,
+  "driver": {{driverId}},
+  "bus": {{busId}},
+  "line": {{lineId}}
+}
+
+###
+# should delete element
+DELETE http://localhost:8080/MyBusCompany/api/slots/{{lastId}}
+
+###
+# Error should return 404
+DELETE http://localhost:8080/MyBusCompany/api/slots/404
+
+###

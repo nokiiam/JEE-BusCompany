@@ -23,14 +23,14 @@ public class BusModel extends Model {
     @Column(name = "capacity", length = 11, nullable = false)
     @Min(20)
     @Max(80)
-    private int capacity;
+    private Integer capacity;
 
     @Column(name = "release_year", nullable = false)
     private Date releaseYear;
 
     @Column(name = "kilometers", length = 11, nullable = false)
     @Min(0)
-    private int kilometers;
+    private Integer kilometers;
 
     @OneToMany(mappedBy = "bus")
     private Set<SlotModel> slots = new HashSet<>();
@@ -38,7 +38,7 @@ public class BusModel extends Model {
     public BusModel() {
     }
 
-    public BusModel(String registration, BusBrand brand, int capacity, Date releaseYear, int kilometers) {
+    public BusModel(String registration, BusBrand brand, Integer capacity, Date releaseYear, Integer kilometers) {
         this.registration = registration;
         Brand = brand;
         this.capacity = capacity;
@@ -62,11 +62,11 @@ public class BusModel extends Model {
         Brand = brand;
     }
 
-    public int getCapacity() {
+    public Integer getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
 
@@ -78,11 +78,11 @@ public class BusModel extends Model {
         this.releaseYear = releaseYear;
     }
 
-    public int getKilometers() {
+    public Integer getKilometers() {
         return kilometers;
     }
 
-    public void setKilometers(int kilometers) {
+    public void setKilometers(Integer kilometers) {
         this.kilometers = kilometers;
     }
 

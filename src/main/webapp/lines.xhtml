@@ -1,6 +1,7 @@
 <html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns="http://www.w3.org/1999/xhtml">
 
 <h:head>
@@ -23,23 +24,11 @@
         </p:menubar>
     </h:form>
 
-    <h:dataTable value="#{stopController.getList()}" var="o"
+    <h:dataTable value="#{lineController.getList()}" var="o"
                  styleClass="order-table"
                  headerClass="order-table-header"
                  rowClasses="order-table-odd-row,order-table-even-row"
     >
-        <h:form id="addStop">
-            <p:panelGrid columns="2">
-                <f:facet name="header">Add new stop:</f:facet>
-
-                <h:outputText value="Name:"/>
-                <p:inputText id="name" value="#{stopController.name}"/>
-
-                <f:facet name="footer">
-                    <p:commandButton value="Add" action="#{stopController.formCreate()}"/>
-                </f:facet>
-            </p:panelGrid>
-        </h:form>
 
         <h:column>
             <f:facet name="header">ID</f:facet>
@@ -47,22 +36,29 @@
         </h:column>
 
         <h:column>
-            <f:facet name="header">Stop Name</f:facet>
-            #{o.getName()}
-        </h:column>
-
-        <h:column>
-            <f:facet name="header">Modify</f:facet>
-            <p:commandButton value="M" action="updatestops"/>
+            <f:facet name="header">Line Number</f:facet>
+            #{o.getNumber()}
         </h:column>
 
         <h:column>
             <f:facet name="header">Delete</f:facet>
-            <p:commandButton value="x" action="#{stopController.delete(o.getId())}" />
+            <p:commandButton value="x" action="#{lineController.delete(o.getId())}" />
         </h:column>
 
     </h:dataTable>
 
+    <h:form id="addLine">
+        <p:panelGrid columns="2">
+            <f:facet name="header">Add new bus line:</f:facet>
+
+            <h:outputText value="Line Number:"/>
+            <p:inputText id="line" value="#{lineController.number}"/>
+
+            <f:facet name="footer">
+                <p:commandButton value="Add" action="#{lineController.formCreate()}"/>
+            </f:facet>
+        </p:panelGrid>
+    </h:form>
 
 </h:body>
 </html>

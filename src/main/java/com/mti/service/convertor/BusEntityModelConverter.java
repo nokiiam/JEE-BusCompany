@@ -12,7 +12,7 @@ public class BusEntityModelConverter implements EntityModelConverter<BusEntity, 
     public BusModel entityToModel(BusEntity request) {
         BusModel model = new BusModel();
         model.setId(request.getId());
-        model.setBrand(BusBrand.valueOf(request.getBrand()));
+        model.setBrand(request.getBrand() != null ? BusBrand.valueOf(request.getBrand()) : null);
         model.setCapacity(request.getCapacity());
         model.setKilometers(request.getKilometers());
         model.setRegistration(request.getRegistration());
