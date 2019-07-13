@@ -1,0 +1,96 @@
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns="http://www.w3.org/1999/xhtml">
+
+<h:head>
+    <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+    <title>Webapp Seed</title>
+</h:head>
+
+<h:body>
+
+    <h:form>
+        <p:menubar>
+            <p:menuitem value="Home" icon="pi pi-home" action="index"/>
+            <p:menuitem value="Utilisateurs" icon="pi pi-users" action="users"/>
+            <p:menuitem value="Conducteurs" icon="pi pi-user" action="drivers"/>
+            <p:menuitem value="Bus" icon="bc-bus" action="buses" styleClass="iconButton"/>
+            <p:menuitem value="Lignes" icon="pi pi-share-alt" action="lines"/>
+            <p:menuitem value="Arrêts" icon="pi pi-map-marker" action="stops"/>
+            <p:menuitem value="Créneaux" icon="pi pi-calendar" action="slots"/>
+            <p:menuitem value="API" icon="pi pi-table" action="api"/>
+        </p:menubar>
+    </h:form>
+
+    <h:dataTable value="#{busController.getList()}" var="o"
+                 styleClass="order-table"
+                 headerClass="order-table-header"
+                 rowClasses="order-table-odd-row,order-table-even-row"
+    >
+
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{o.getId()}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Brand</f:facet>
+            #{o.getBrand()}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Registration</f:facet>
+            #{o.getRegistration()}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Capacity</f:facet>
+            #{o.getCapacity()}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Kilometers</f:facet>
+            #{o.getKilometers()}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Release Year</f:facet>
+            #{o.getReleaseYear().getYear() + 1900}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Delete</f:facet>
+            <p:commandButton value="x" action="#{busController.delete(o.getId())}" />
+        </h:column>
+
+    </h:dataTable>
+
+    <h:form id="addLine">
+        <p:panelGrid columns="2">
+            <f:facet name="header">Add new bus:</f:facet>
+
+            <h:outputText value="Brand"/>
+            <p:inputText id="brand" value="#{busController.brand}"/>
+
+            <h:outputText value="Registration"/>
+            <p:inputText id="registration" value="#{busController.registration}"/>
+
+            <h:outputText value="Capacity"/>
+            <p:inputText id="capacity" value="#{busController.capacity}"/>
+
+            <h:outputText value="Kilometers"/>
+            <p:inputText id="kilometers" value="#{busController.kilometers}"/>
+
+            <h:outputText value="Release Year"/>
+            <p:inputText id="releaseyear" value="#{busController.releaseYear}"/>
+
+            <f:facet name="footer">
+                <p:commandButton value="Add" action="#{busController.formCreate()}"/>
+            </f:facet>
+        </p:panelGrid>
+    </h:form>
+
+</h:body>
+</html>
