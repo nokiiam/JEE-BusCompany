@@ -4,6 +4,7 @@
 
 <h:head>
     <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+    <h:outputStylesheet name="buscompany.css" library="buscompanystyles"/>
     <title>Webapp Seed</title>
 </h:head>
 
@@ -12,13 +13,13 @@
     <h:form>
         <p:menubar>
             <p:menuitem value="Home" icon="pi pi-home" action="index"/>
-            <p:menuitem value="Utilisateurs" icon="pi pi-user" action="users"/>
-            <p:menuitem value="Conducteurs" icon="pi pi-home" action="drivers"/>
-            <p:menuitem value="Bus" icon="pi pi-user" action="buses"/>
-            <p:menuitem value="Lignes" icon="pi pi-home" action="lines"/>
-            <p:menuitem value="Arrêts" icon="pi pi-user" action="stops"/>
-            <p:menuitem value="Créneaux" icon="pi pi-user" action="slots"/>
-            <p:menuitem value="API" icon="pi pi-user" action="api"/>
+            <p:menuitem value="Utilisateurs" icon="pi pi-users" action="users"/>
+            <p:menuitem value="Conducteurs" icon="pi pi-user" action="drivers"/>
+            <p:menuitem value="Bus" icon="bc-bus" action="buses" styleClass="iconButton"/>
+            <p:menuitem value="Lignes" icon="pi pi-share-alt" action="lines"/>
+            <p:menuitem value="Arrêts" icon="pi pi-map-marker" action="stops"/>
+            <p:menuitem value="Créneaux" icon="pi pi-calendar" action="slots"/>
+            <p:menuitem value="API" icon="pi pi-table" action="api"/>
         </p:menubar>
     </h:form>
 
