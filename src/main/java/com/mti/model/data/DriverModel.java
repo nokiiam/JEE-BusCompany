@@ -5,6 +5,8 @@ import org.hibernate.annotations.NaturalId;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "driver")
@@ -29,11 +31,11 @@ public class DriverModel extends Model {
     @Enumerated(EnumType.ORDINAL)
     private DriverStatus status;
 
-    /*@OneToMany(mappedBy = "driver")
+    @OneToMany(mappedBy = "driver")
     private Set<SlotModel> slots = new HashSet<>();
 
     @OneToOne(mappedBy = "driver")
-    private UserModel user;*/
+    private UserModel user;
 
     @Override
     public Integer getId() {
@@ -85,7 +87,7 @@ public class DriverModel extends Model {
         this.status = status;
     }
 
-    /*public UserModel getUser() {
+    public UserModel getUser() {
         return user;
     }
 
@@ -112,5 +114,5 @@ public class DriverModel extends Model {
 
     public void removeSlot(SlotModel slot) {
         slots.remove(slot);
-    }*/
+    }
 }

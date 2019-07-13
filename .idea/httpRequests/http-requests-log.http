@@ -1,0 +1,536 @@
+DELETE http://localhost:8080/MyBusCompany/api/drivers/404
+
+###
+
+DELETE http://localhost:8080/MyBusCompany/api/drivers/1
+
+###
+
+PUT http://localhost:8080/MyBusCompany/api/drivers/404
+Content-Type: application/json
+
+{
+  "firstname": "Juste",
+  "lastname": "LebLanc",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T112154.404.json
+
+###
+
+PUT http://localhost:8080/MyBusCompany/api/drivers/1
+Content-Type: application/json
+
+{
+  "firstnddsame": "Juste",
+  "lastname": "LebLanc",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T112152.400.html
+
+###
+
+PUT http://localhost:8080/MyBusCompany/api/drivers/1
+Content-Type: application/json
+
+{
+  "firstname": "Juste",
+  "lastname": "LebLanc",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T112149.200.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers/404
+
+<> 2019-07-13T112146.404.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers/1
+
+<> 2019-07-13T112143.200.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname": "Jean",
+  "lastname": "Kevin",
+  "birthDate": "1997-20-04",
+  "status": 7
+}
+
+<> 2019-07-13T112140.400.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname": "Jean",
+  "lastname": "Kevin",
+  "birthDate": "2010-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T112138.400.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname": "Jean",
+  "lastname": "Kevin",
+  "birthDate": "1897-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T112135.400.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname": "Jean",
+  "lastname": "Kevin",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T112131.201.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers
+
+<> 2019-07-13T112128.200.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname": "Jean",
+  "lastname": "Kevi",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T112123.201.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers
+
+<> 2019-07-13T112120.200.json
+
+###
+
+PUT http://localhost:8080/MyBusCompany/api/drivers/404
+Content-Type: application/json
+
+{
+  "firstname" : "Juste",
+  "lastname" : "LebLanc",
+  "birthDate": "20/04/1997",
+  "status": 0
+}
+
+<> 2019-07-13T110600.400.html
+
+###
+
+PUT http://localhost:8080/MyBusCompany/api/drivers/8
+Content-Type: application/json
+
+{
+  "firstnddsame" : "Juste",
+  "lastname" : "LebLanc",
+  "birthDate": "20/04/1997",
+  "status": 0
+}
+
+<> 2019-07-13T110552.400.html
+
+###
+
+PUT http://localhost:8080/MyBusCompany/api/drivers/8
+Content-Type: application/json
+
+{
+  "firstname" : "Juste",
+  "lastname" : "LebLanc",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T110548.200.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers/404
+
+<> 2019-07-13T110546.404.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers/8
+
+<> 2019-07-13T110541.200.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+"firstname" : "Jean",
+"lastname" : "Kevin",
+"birthDate": "1997-20-04",
+"status": 7
+}
+
+<> 2019-07-13T110528.400.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kevin",
+  "birthDate": "2010-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T110524.400.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kevin",
+  "birthDate": "1897-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T110518.400.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers
+
+<> 2019-07-13T110511.200.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kevi",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T110446.409.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kevi",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T110444.201.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kevi",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T110442.201.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kevi",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T110438.201.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kevi",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T110434.201.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers
+
+<> 2019-07-13T110424.200.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers
+
+<> 2019-07-13T104901.200.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers
+
+<> 2019-07-13T104558.500.html
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kevi",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T104554.201.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kev",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T104525.409.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers
+
+<> 2019-07-13T104323.200.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kev",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T104314.409.json
+
+###
+
+DELETE http://localhost:8080/MyBusCompany/api/drivers/3
+
+<> 2019-07-13T104257.404.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jes",
+  "lastname" : "Kv",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T104240.409.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jes",
+  "lastname" : "Kev",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T104229.409.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers
+
+<> 2019-07-13T104208.500.html
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers
+
+<> 2019-07-13T104005.500.html
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kevin",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T103948.409.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers
+
+<> 2019-07-13T102724.500.html
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers
+
+<> 2019-07-13T102421.500.html
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/buses
+
+<> 2019-07-13T102409.200.json
+
+###
+
+GET http://localhost:8080/MyBusCompany/api/drivers
+
+<> 2019-07-13T101919.500.html
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kevin",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T101438.409.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kevin",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T101105.409.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kevin",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T101045.409.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kevin",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T100747.409.json
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/drivers
+Content-Type: application/json
+
+{
+  "firstname" : "Jean",
+  "lastname" : "Kevin",
+  "birthDate": "1997-20-04",
+  "status": 0
+}
+
+<> 2019-07-13T100734.201.json
+
+###
+

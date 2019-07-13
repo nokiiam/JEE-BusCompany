@@ -46,7 +46,8 @@ public class DriverService extends Service<DriverEntity, DriverModel, DriverDao>
             if (lengthFirst == 0) {
                 code = Encryptor.getRandomToken(6);
             } else {
-                code = lastname.substring(0, lengthLast) + firstname.substring(0, lengthFirst);
+                code = lastname.substring(0, Math.min(lengthLast, lastname.length()))
+                        + firstname.substring(0, Math.min(lengthFirst, firstname.length()));
             }
             if (dao.getByCode(code) != null) {
                 code = null;
