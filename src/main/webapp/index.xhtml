@@ -11,15 +11,21 @@
 
     <h:form>
         <p:menubar>
-            <p:menuitem value="Index" icon="pi pi-home" action="/index"/>
-            <p:menuitem value="Users" icon="pi pi-user" action="/users"/>
+            <p:menuitem value="Home" icon="pi pi-home" action="index"/>
+            <p:menuitem value="Utilisateurs" icon="pi pi-user" action="users"/>
+            <p:menuitem value="Conducteurs" icon="pi pi-home" action="drivers"/>
+            <p:menuitem value="Bus" icon="pi pi-user" action="buses"/>
+            <p:menuitem value="Lignes" icon="pi pi-home" action="lines"/>
+            <p:menuitem value="Arrêts" icon="pi pi-user" action="stops"/>
+            <p:menuitem value="Stops" icon="pi pi-user" action="stops"/>
+            <p:menuitem value="API" icon="pi pi-user" action="api"/>
         </p:menubar>
     </h:form>
 
     <h2>Index</h2>
 
     <p:panel id="basic" header="Basic" style="margin-bottom:20px">
-        <h:outputText value="#{indexController.helllo()}"/>
+        <h:outputText value="#{indexController.hello()}"/>
     </p:panel>
 
 </h:body>

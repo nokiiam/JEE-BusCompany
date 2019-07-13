@@ -6,7 +6,11 @@ import javax.inject.Singleton;
 @Singleton
 @Named("indexController")
 public class IndexController {
-    public String helllo() {
+    public String hello() {
         return "Xylophone";
+    }
+
+    public String user() {
+        return "Prout";
     }
 }
