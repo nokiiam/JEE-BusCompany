@@ -1,0 +1,94 @@
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns="http://www.w3.org/1999/xhtml">
+
+<h:head>
+    <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+    <title>Webapp Seed</title>
+</h:head>
+
+<h:body>
+
+    <h:form>
+        <p:menubar>
+            <p:menuitem value="Home" icon="pi pi-home" action="index"/>
+            <p:menuitem value="Utilisateurs" icon="pi pi-users" action="users"/>
+            <p:menuitem value="Conducteurs" icon="pi pi-user" action="drivers"/>
+            <p:menuitem value="Bus" icon="bc-bus" action="buses" styleClass="iconButton"/>
+            <p:menuitem value="Lignes" icon="pi pi-share-alt" action="lines"/>
+            <p:menuitem value="Arrêts" icon="pi pi-map-marker" action="stops"/>
+            <p:menuitem value="Créneaux" icon="pi pi-calendar" action="slots"/>
+            <p:menuitem value="API" icon="pi pi-table" action="api"/>
+        </p:menubar>
+    </h:form>
+
+    <h:dataTable value="#{driverController.getList()}" var="o"
+                 styleClass="order-table"
+                 headerClass="order-table-header"
+                 rowClasses="order-table-odd-row,order-table-even-row"
+    >
+
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{o.getId()}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Code</f:facet>
+            #{o.getCode()}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Birthdate</f:facet>
+            #{o.getBirthDate()}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Firstname</f:facet>
+            #{o.getFirstname()}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Lastname</f:facet>
+            #{o.getLastname()}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Status</f:facet>
+            #{o.getStatus()}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Delete</f:facet>
+            <p:commandButton value="x" action="#{driverController.delete(o.getId())}" />
+        </h:column>
+
+    </h:dataTable>
+
+
+    <h:form id="addLine">
+        <p:panelGrid columns="2">
+            <f:facet name="header">Add new driver:</f:facet>
+
+            <h:outputText value="Birthdate"/>
+            <p:inputText id="birthdate" value="#{driverController.birthdate}"/>
+
+            <h:outputText value="Firstname"/>
+            <p:inputText id="firstname" value="#{driverController.firstname}"/>
+
+            <h:outputText value="Lastname"/>
+            <p:inputText id="lastname" value="#{driverController.firstname}"/>
+
+            <h:outputText value="Status"/>
+            <p:inputText id="status" value="#{driverController.lastname}"/>
+
+            <f:facet name="footer">
+                <p:commandButton value="Add" action="#{driverController.formCreate()}"/>
+            </f:facet>
+        </p:panelGrid>
+    </h:form>
+
+</h:body>
+</html>

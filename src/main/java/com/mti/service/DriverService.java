@@ -27,7 +27,6 @@ public class DriverService extends Service<DriverEntity, DriverModel, DriverDao>
 
     @Override
     public DriverEntity update(int id, DriverEntity entity) {
-        // TODO handle error
         DriverEntity lastEntity = getById(id);
         if (lastEntity == null)
             return null;
