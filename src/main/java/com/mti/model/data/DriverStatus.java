@@ -5,7 +5,9 @@ public enum DriverStatus {
     DailyRest,
     WeeklyRest;
 
-    public static DriverStatus fromInteger(int x) {
+    public static DriverStatus fromInteger(Integer x) {
+        if (x == null)
+            return null;
         switch (x) {
             case 0:
                 return InActivity;

@@ -13,7 +13,7 @@ public class DriverEntity extends Entity {
     /**
      * The driver's status e.g. if he's working, or at rest, and if he's resting for the day or for the week.
      */
-    private int status;
+    private Integer status;
     private Date birthDate;
     private String firstname;
     private String lastname;
@@ -53,11 +53,11 @@ public class DriverEntity extends Entity {
         this.lastname = lastname;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 }

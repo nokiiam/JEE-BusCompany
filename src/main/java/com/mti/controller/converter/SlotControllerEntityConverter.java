@@ -50,6 +50,7 @@ public class SlotControllerEntityConverter implements ControllerEntityConverter<
         LineEntity line = new LineEntity();
         line.setId(request.getLine());
         slotEntity.setLine(line);
+
         return slotEntity;
     }
 

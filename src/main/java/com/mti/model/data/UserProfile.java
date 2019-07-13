@@ -6,7 +6,9 @@ public enum UserProfile {
     Conductor,
     AdministratorAndConductor;
 
-    static public UserProfile fromInt(int x) {
+    static public UserProfile fromInt(Integer x) {
+        if (x == null)
+            return null;
         switch (x) {
             case 0:
                 return None;
