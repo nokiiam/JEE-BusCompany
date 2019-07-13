@@ -35,10 +35,10 @@
             <f:facet name="header">Add new stop:</f:facet>
 
             <h:outputText value="Name:"/>
-            <p:inputText id="name" value="#{stopRequest.name}"/>
+            <p:inputText id="name" value="#{stopController.name}"/>
 
             <f:facet name="footer">
-                <p:commandButton value="Add" action="#{stopController.create}"/>
+                <p:commandButton value="Add" action="#{stopController.formCreate()}" render="stops"/>
             </f:facet>
         </p:panelGrid>
     </h:form>
