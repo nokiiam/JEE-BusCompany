@@ -1,7 +1,7 @@
 <html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns="http://www.w3.org/1999/xhtml">
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:head>
     <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
@@ -31,12 +31,17 @@
             <p:inputText id="name" value="#{stopController.name}"/>
 
             <f:facet name="footer">
-                <p:commandButton value="Add" action="#{stopController.formCreate()}" icon="pi pi-plus-circle"/>
+                <p:commandButton value="Add" action="#{stopController.formCreate()}" icon="pi pi-plus-circle"
+                                 update=":stopTable"/>
+                <c:if test="#{not (stopController.id eq -1)}">
+                    <p:commandButton value="Update" action="#{stopController.formUpdate()}" icon="pi pi-tag"
+                                     update=":stopTable"/>
+                </c:if>
             </f:facet>
         </p:panelGrid>
     </h:form>
 
-    <h:dataTable value="#{stopController.getList()}" var="o"
+    <h:dataTable id="stopTable" value="#{stopController.getList()}" var="o"
                  styleClass="order-table"
                  headerClass="order-table-header"
                  rowClasses="order-table-odd-row,order-table-even-row"
@@ -54,7 +59,7 @@
 
         <h:column>
             <f:facet name="header">Modify</f:facet>
-            <p:commandButton action="updatestops?includeViewParams=true" icon="pi pi-cog"/>
+            <p:commandButton action="#{stopController.setUpdate(o)}" icon="pi pi-cog" update=":addStop"/>
         </h:column>
 
         <h:column>

@@ -9,9 +9,9 @@ import com.mti.model.data.StopModel;
 import com.mti.service.StopService;
 import com.mti.service.data.StopEntity;
 
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.inject.Singleton;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
@@ -20,12 +20,12 @@ import javax.ws.rs.core.Response;
  * Controller for lines
  * Handles requests to '/stops'
  */
-@RequestScoped
+@Singleton
 @Path("/stops")
 @Named
 public class StopController implements Controller<StopRequest, StopResponse, StopEntity, StopModel, StopDao, StopService> {
 
-    private Integer id;
+    private Integer id = -1;
 
     private String name;
 
@@ -48,6 +48,11 @@ public class StopController implements Controller<StopRequest, StopResponse, Sto
         StopRequest stopRequest = new StopRequest();
         stopRequest.setName(name);
         return create(stopRequest);
+    }
+
+    public void setUpdate(StopResponse stop) {
+        id = stop.getId();
+        name = stop.getName();
     }
 
     public Response formUpdate() {
