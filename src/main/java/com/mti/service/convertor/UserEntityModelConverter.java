@@ -19,7 +19,10 @@ public class UserEntityModelConverter implements EntityModelConverter<UserEntity
         userModel.setLogin(entity.getLogin());
         userModel.setPassword(entity.getPassword());
         userModel.setProfile(UserProfile.fromInt(entity.getProfile()));
-        userModel.setDriver(driverConverter.entityToModel(entity.getDriver()));
+        if (userModel.getProfile() != null && userModel.getProfile().isConductor()) {
+            userModel.setDriver(driverConverter.entityToModel(entity.getDriver()));
+        }
+
 
         return userModel;
     }

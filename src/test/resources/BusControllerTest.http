@@ -7,7 +7,7 @@ POST http://localhost:8080/MyBusCompany/api/buses
 Content-Type: application/json
 
 {
-  "registration": "BA-323-BE",
+  "registration": "Ba-323-BE",
   "brand": "Volv",
   "capacity": 80,
   "kilometers": 1000,

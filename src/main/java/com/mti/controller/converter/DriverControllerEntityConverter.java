@@ -7,6 +7,8 @@ import com.mti.service.data.DriverEntity;
 public class DriverControllerEntityConverter implements ControllerEntityConverter<DriverRequest, DriverResponse, DriverEntity> {
     @Override
     public DriverEntity controllerToEntity(DriverRequest request) {
+        if (request == null)
+            return null;
         DriverEntity entity = new DriverEntity();
 
         entity.setBirthDate(request.getBirthDate());
@@ -18,6 +20,8 @@ public class DriverControllerEntityConverter implements ControllerEntityConverte
 
     @Override
     public DriverResponse entityToController(DriverEntity entity) {
+        if (entity == null)
+            return null;
         DriverResponse response = new DriverResponse();
 
         response.setId(entity.getId());
