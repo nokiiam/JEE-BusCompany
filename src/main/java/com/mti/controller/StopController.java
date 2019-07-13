@@ -25,6 +25,8 @@ import javax.ws.rs.core.Response;
 @Named
 public class StopController implements Controller<StopRequest, StopResponse, StopEntity, StopModel, StopDao, StopService> {
 
+    private Integer id;
+
     private String name;
 
     @Inject
@@ -48,11 +50,26 @@ public class StopController implements Controller<StopRequest, StopResponse, Sto
         return create(stopRequest);
     }
 
+    public Response formUpdate() {
+        StopRequest stopRequest = new StopRequest();
+        stopRequest.setName(name);
+        return update(id, stopRequest);
+    }
+
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

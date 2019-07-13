@@ -23,12 +23,12 @@
         </p:menubar>
     </h:form>
 
-    <h:form id="addStop">
+    <h:form id="addSlot">
         <p:panelGrid columns="2">
-            <f:facet name="header">Add new stop:</f:facet>
+            <f:facet name="header">Add new slot:</f:facet>
 
             <h:outputText value="Name:"/>
-            <p:inputText id="name" value="#{stopController.name}"/>
+            <p:inputText id="name" value="#{slotController.name}"/>
 
             <f:facet name="footer">
                 <p:commandButton value="Add" action="#{stopController.formCreate()}" icon="pi pi-plus-circle"/>

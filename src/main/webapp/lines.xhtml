@@ -1,12 +1,11 @@
 <html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns="http://www.w3.org/1999/xhtml">
 
 <h:head>
     <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
-    <title>Webapp Seed</title>
+    <title>Bus Company</title>
 </h:head>
 
 <h:body>
@@ -55,7 +54,7 @@
             <p:inputText id="line" value="#{lineController.number}"/>
 
             <f:facet name="footer">
-                <p:commandButton value="Add" action="#{lineController.formCreate()}"/>
+                <p:commandButton value="Add" action="#{lineController.formCreate()}" icon="pi pi-plus-circle"/>
             </f:facet>
         </p:panelGrid>
     </h:form>
