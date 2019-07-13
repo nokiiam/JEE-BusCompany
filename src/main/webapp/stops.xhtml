@@ -26,7 +26,7 @@
 
     <p:panel id="basic" header="Bus stop list" style="margin-bottom:20px">
         <ui:repeat value="#{stopController.getList()}" var="value">
-            #{value.getId()}: #{value.getName()} <br />
+            #{value.getId()}: #{value.getName()} <p:commandButton value="Delete" action="#{stopController.delete(value.getId())}" /> <br />
         </ui:repeat>
     </p:panel>
 
@@ -35,10 +35,10 @@
             <f:facet name="header">Add new stop:</f:facet>
 
             <h:outputText value="Name:"/>
-            <p:inputText id="name" value="#{stopRequest.name}"/>
+            <p:inputText id="name" value="#{stopController.name}"/>
 
             <f:facet name="footer">
-                <p:commandButton value="Add" action="#{stopController.create}"/>
+                <p:commandButton value="Add" action="#{stopController.formCreate()}"/>
             </f:facet>
         </p:panelGrid>
     </h:form>
