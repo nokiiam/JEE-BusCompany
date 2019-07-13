@@ -1,5 +1,7 @@
 <html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns="http://www.w3.org/1999/xhtml">
 
 <h:head>
@@ -22,11 +24,24 @@
         </p:menubar>
     </h:form>
 
-    <h2>Index</h2>
-
-    <p:panel id="basic" header="Basic" style="margin-bottom:20px">
-        <h:outputText value="#{indexController.hello()}"/>
+    <p:panel id="basic" header="Bus stop list" style="margin-bottom:20px">
+        <ui:repeat value="#{stopController.getList()}" var="value">
+            #{value.getId()}: #{value.getName()} <br />
+        </ui:repeat>
     </p:panel>
+
+    <h:form id="addStop">
+        <p:panelGrid columns="2">
+            <f:facet name="header">Add new stop:</f:facet>
+
+            <h:outputText value="Name:"/>
+            <p:inputText id="name" value="#{stopRequest.name}"/>
+
+            <f:facet name="footer">
+                <p:commandButton value="Add" action="#{stopController.create}"/>
+            </f:facet>
+        </p:panelGrid>
+    </h:form>
 
 </h:body>
 </html>

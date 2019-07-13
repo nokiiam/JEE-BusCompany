@@ -4,7 +4,7 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 
 @Singleton
-@Named("indexController")
+@Named
 public class IndexController {
     public String hello() {
         return "Xylophone";

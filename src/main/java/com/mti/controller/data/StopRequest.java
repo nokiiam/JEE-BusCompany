@@ -1,5 +1,8 @@
 package com.mti.controller.data;
 
+import javax.inject.Named;
+
+@Named
 public class StopRequest extends AbstractRequest {
     private String name;
 

@@ -11,6 +11,7 @@ import com.mti.service.data.StopEntity;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.ws.rs.Path;
 
 
@@ -20,6 +21,7 @@ import javax.ws.rs.Path;
  */
 @RequestScoped
 @Path("/stops")
+@Named
 public class StopController implements Controller<StopRequest, StopResponse, StopEntity, StopModel, StopDao, StopService> {
 
     @Inject
