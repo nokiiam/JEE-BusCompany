@@ -7,7 +7,7 @@ POST http://localhost:8080/MyBusCompany/api/stops
 Content-Type: application/json
 
 {
-  "name": "tolt"
+  "name": "prout"
 }
 
 > {%
