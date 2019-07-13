@@ -24,11 +24,28 @@
         </p:menubar>
     </h:form>
 
-    <p:panel id="basic" header="Bus stop list" style="margin-bottom:20px">
-        <ui:repeat value="#{stopController.getList()}" var="value">
-            #{value.getId()}: #{value.getName()} <p:commandButton value="Delete" action="#{stopController.delete(value.getId())}" /> <br />
-        </ui:repeat>
-    </p:panel>
+    <h:dataTable value="#{stopController.getList()}" var="o"
+                 styleClass="order-table"
+                 headerClass="order-table-header"
+                 rowClasses="order-table-odd-row,order-table-even-row"
+    >
+
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{o.getId()}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Stop Name</f:facet>
+            #{o.getName()}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Delete</f:facet>
+            <p:commandButton value="x" action="#{stopController.delete(o.getId())}" />
+        </h:column>
+
+    </h:dataTable>
 
     <h:form id="addStop">
         <p:panelGrid columns="2">
