@@ -43,9 +43,9 @@ public class LineController implements Controller<LineRequest, LineResponse, Lin
     }
 
     public Response formCreate() {
-        LineRequest stopRequest = new LineRequest();
-        stopRequest.setNumber(number);
-        return create(stopRequest);
+        LineRequest lineRequest = new LineRequest();
+        lineRequest.setNumber(number);
+        return create(lineRequest);
     }
 
     public Integer getNumber() {
