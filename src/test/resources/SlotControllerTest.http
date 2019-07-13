@@ -42,8 +42,8 @@ POST http://localhost:8080/MyBusCompany/api/drivers
 Content-Type: application/json
 
 {
-  "firstname": "J2E",
-  "lastname": "Kevi",
+  "firstname": "J2EE",
+  "lastname": "Kev",
   "birthDate": "1997-20-04",
   "status": 0
 }
@@ -69,7 +69,69 @@ client.global.set("lastId", response.body.id);
 %}
 
 ###
-# get bus created
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-17",
+  "morning": true,
+  "driver": {{driverId}},
+  "bus": {{busId}},
+  "line": {{lineId}}
+}
+
+###
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-18",
+  "morning": true,
+  "driver": {{driverId}},
+  "bus": {{busId}},
+  "line": {{lineId}}
+}
+
+###
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-19",
+  "morning": true,
+  "driver": {{driverId}},
+  "bus": {{busId}},
+  "line": {{lineId}}
+}
+
+###
+# should fail (five consecutive days)
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-20",
+  "morning": true,
+  "driver": {{driverId}},
+  "bus": {{busId}},
+  "line": {{lineId}}
+}
+
+###
+# should fail (2 days break after 4 days work)
+POST http://localhost:8080/MyBusCompany/api/slots
+Content-Type: application/json
+
+{
+  "date": "2019-13-21",
+  "morning": true,
+  "driver": {{driverId}},
+  "bus": {{busId}},
+  "line": {{lineId}}
+}
+
+###
+# get element created
 GET http://localhost:8080/MyBusCompany/api/slots/{{lastId}}
 
 ###
@@ -78,12 +140,13 @@ GET http://localhost:8080/MyBusCompany/api/slots/404
 
 ###
 # update
+# Error 405, not allowed
 PUT http://localhost:8080/MyBusCompany/api/slots/{{lastId}}
 Content-Type: application/json
 
 {
   "date": "2019-13-07",
-  "isMorning": false,
+  "morning": false,
   "driver": {{driverId}},
   "bus": {{busId}},
   "line": {{lineId}}
@@ -96,19 +159,6 @@ Content-Type: application/json
 
 {
   "dereredde": "tata"
-}
-
-###
-# Error should return 404
-PUT http://localhost:8080/MyBusCompany/api/slots/404
-Content-Type: application/json
-
-{
-  "date": "2019-13-07",
-  "isMorning": true,
-  "driver": {{driverId}},
-  "bus": {{busId}},
-  "line": {{lineId}}
 }
 
 ###
