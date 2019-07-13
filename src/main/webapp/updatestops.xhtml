@@ -36,30 +36,10 @@
                 <p:inputText id="name" value="#{stopController.name}"/>
 
                 <f:facet name="footer">
-                    <p:commandButton value="Add" action="#{stopController.formCreate()}"/>
+                    <p:commandButton value="Update" action="#{stopController.formCreate()}"/>
                 </f:facet>
             </p:panelGrid>
         </h:form>
-
-        <h:column>
-            <f:facet name="header">ID</f:facet>
-            #{o.getId()}
-        </h:column>
-
-        <h:column>
-            <f:facet name="header">Stop Name</f:facet>
-            #{o.getName()}
-        </h:column>
-
-        <h:column>
-            <f:facet name="header">Modify</f:facet>
-            <p:commandButton value="M" action="updatestops"/>
-        </h:column>
-
-        <h:column>
-            <f:facet name="header">Delete</f:facet>
-            <p:commandButton value="x" action="#{stopController.delete(o.getId())}" />
-        </h:column>
 
     </h:dataTable>
 

@@ -1,0 +1,38 @@
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+    <h:outputStylesheet name="buscompany.css" library="buscompanystyles"/>
+    <title>Webapp Seed</title>
+</h:head>
+
+<h:body>
+
+    <h:form>
+        <p:menubar>
+            <p:menuitem value="Home" icon="pi pi-home" action="index"/>
+            <p:menuitem value="Utilisateurs" icon="pi pi-users" action="users"/>
+            <p:menuitem value="Conducteurs" icon="pi pi-user" action="drivers"/>
+            <p:menuitem value="Bus" icon="bc-bus" action="buses" styleClass="iconButton"/>
+            <p:menuitem value="Lignes" icon="pi pi-share-alt" action="lines"/>
+            <p:menuitem value="Arrêts" icon="pi pi-map-marker" action="stops"/>
+            <p:menuitem value="Créneaux" icon="pi pi-calendar" action="slots"/>
+            <p:menuitem value="API" icon="pi pi-table" action="api"/>
+        </p:menubar>
+    </h:form>
+
+    <h:form id="addStop">
+        <p:panelGrid columns="2">
+            <f:facet name="header">Endpoint</f:facet>
+            <p:commandLink value="Utilisateurs" url="/api/users" ajax="false"/>
+            <p:commandButton value="Conducteurs" action="#{stopController.delete(o.getId())}"/>
+            <p:commandButton value="Bus" action="#{stopController.delete(o.getId())}"/>
+            <p:commandButton value="Lignes" action="#{stopController.delete(o.getId())}"/>
+            <p:commandButton value="Arrêts" action="#{stopController.delete(o.getId())}"/>
+            <p:commandButton value="Créneaux" action="#{stopController.delete(o.getId())}"/>
+        </p:panelGrid>
+    </h:form>
+</h:body>
+</html>
