@@ -7,7 +7,7 @@ POST http://localhost:8080/MyBusCompany/api/drivers
 Content-Type: application/json
 
 {
-  "firstname": "Jean",
+  "firstname": "J2E",
   "lastname": "Kevi",
   "birthDate": "1997-20-04",
   "status": 0

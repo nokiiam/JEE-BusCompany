@@ -44,7 +44,7 @@ public class DriverService extends Service<DriverEntity, DriverModel, DriverDao>
         int lengthFirst = 2;
         do {
             if (lengthFirst == 0) {
-                code = Encryptor.getRandomToken(6);
+                code = Encryptor.getRandomDriverCode();
             } else {
                 code = lastname.substring(0, Math.min(lengthLast, lastname.length()))
                         + firstname.substring(0, Math.min(lengthFirst, firstname.length()));

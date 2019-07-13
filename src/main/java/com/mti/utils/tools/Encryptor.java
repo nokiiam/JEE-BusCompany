@@ -23,4 +23,9 @@ public abstract class Encryptor {
         random.nextBytes(bytes);
         return Arrays.toString(bytes);
     }
+
+    public static String getRandomDriverCode() {
+        RandomString randomString = new RandomString(6);
+        return randomString.nextString();
+    }
 }
