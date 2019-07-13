@@ -1,0 +1,98 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection).
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+# get all
+GET http://localhost:8080/MyBusCompany/api/linestops
+
+###
+
+POST http://localhost:8080/MyBusCompany/api/lines
+Content-Type: application/json
+
+{
+  "number": 3
+}
+
+> {%
+client.global.set("lineId", response.body.id);
+%}
+
+###
+# create stop toto, should return 201
+POST http://localhost:8080/MyBusCompany/api/stops
+Content-Type: application/json
+
+{
+  "name": "stop"
+}
+
+
+> {%
+client.global.set("stopId", response.body.id);
+%}
+
+###
+POST http://localhost:8080/MyBusCompany/api/linestops
+Content-Type: application/json
+
+{
+  "line": 1,
+  "stop": 3,
+  "order": 5
+}
+
+> {%
+client.global.set("lastId", response.body.id);
+%}
+
+###
+# get bus created
+GET http://localhost:8080/MyBusCompany/api/linestops/{{lastId}}
+
+###
+# Error should return 404
+GET http://localhost:8080/MyBusCompany/api/linestops/404
+
+###
+# update
+PUT http://localhost:8080/MyBusCompany/api/linestops/{{lastId}}
+Content-Type: application/json
+
+{
+  "line": 3,
+  "stop": 3,
+  "order": 1
+}
+
+###
+# Error shoudl return 400
+PUT http://localhost:8080/MyBusCompany/api/linestops/{{lastId}}
+Content-Type: application/json
+
+{
+  "dereredde": "tata"
+}
+
+###
+# Error should return 404
+PUT http://localhost:8080/MyBusCompany/api/linestops/404
+Content-Type: application/json
+
+{
+  "line": 1,
+  "stop": 3,
+  "order": 5
+}
+
+###
+# should delete element
+DELETE http://localhost:8080/MyBusCompany/api/linestops/{{lastId}}
+
+###
+# Error should return 404
+DELETE http://localhost:8080/MyBusCompany/api/linestops/404
+
+###

@@ -12,7 +12,7 @@ import java.util.Set;
 public class LineModel extends Model {
 
     @Column(name = "number", length = 11, unique = true, nullable = false)
-    private int number;
+    private Integer number;
 
     @OneToMany(mappedBy = "line")
     private Set<SlotModel> slots = new HashSet<>();
@@ -23,15 +23,15 @@ public class LineModel extends Model {
     public LineModel() {
     }
 
-    public LineModel(int number) {
+    public LineModel(Integer number) {
         this.number = number;
     }
 
-    public int getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 

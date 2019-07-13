@@ -1,7 +1,5 @@
 package com.mti.model.data;
 
-import org.hibernate.annotations.NaturalId;
-
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Date;
@@ -16,7 +14,6 @@ public class DriverModel extends Model {
     private Date birthDate;
 
     @Column(name = "code", length = 6, unique = true, nullable = false)
-    @NaturalId
     private String code;
 
     @Column(name = "firstname", length = 45, nullable = false)

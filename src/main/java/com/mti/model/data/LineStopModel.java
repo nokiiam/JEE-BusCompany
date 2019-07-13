@@ -1,9 +1,6 @@
 package com.mti.model.data;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "bus_line_stop")
@@ -17,12 +14,13 @@ public class LineStopModel extends Model {
     @JoinColumn(name = "bus_stop_id", referencedColumnName = "id", nullable = false)
     private StopModel stop;
 
-    private int order;
+    @Column(name = "`order`")
+    private Integer order;
 
     public LineStopModel() {
     }
 
-    public LineStopModel(LineModel line, StopModel stop, int order) {
+    public LineStopModel(LineModel line, StopModel stop, Integer order) {
         this.line = line;
         this.stop = stop;
         this.order = order;
@@ -44,11 +42,11 @@ public class LineStopModel extends Model {
         this.stop = stop;
     }
 
-    public int getOrder() {
+    public Integer getOrder() {
         return order;
     }
 
-    public void setOrder(int order) {
+    public void setOrder(Integer order) {
         this.order = order;
     }
 }
