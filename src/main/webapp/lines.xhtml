@@ -24,7 +24,7 @@
         </p:menubar>
     </h:form>
 
-    <h:dataTable value="#{stopController.getList()}" var="o"
+    <h:dataTable value="#{lineController.getList()}" var="o"
                  styleClass="order-table"
                  headerClass="order-table-header"
                  rowClasses="order-table-odd-row,order-table-even-row"
@@ -36,26 +36,26 @@
         </h:column>
 
         <h:column>
-            <f:facet name="header">Stop Name</f:facet>
-            #{o.getName()}
+            <f:facet name="header">Line Number</f:facet>
+            #{o.getNumber()}
         </h:column>
 
         <h:column>
             <f:facet name="header">Delete</f:facet>
-            <p:commandButton value="x" action="#{stopController.delete(o.getId())}" />
+            <p:commandButton value="x" action="#{lineController.delete(o.getId())}" />
         </h:column>
 
     </h:dataTable>
 
-    <h:form id="addStop">
+    <h:form id="addLine">
         <p:panelGrid columns="2">
-            <f:facet name="header">Add new stop:</f:facet>
+            <f:facet name="header">Add new bus line:</f:facet>
 
-            <h:outputText value="Name:"/>
-            <p:inputText id="name" value="#{stopController.name}"/>
+            <h:outputText value="Line Number:"/>
+            <p:inputText id="line" value="#{lineController.number}"/>
 
             <f:facet name="footer">
-                <p:commandButton value="Add" action="#{stopController.formCreate()}"/>
+                <p:commandButton value="Add" action="#{lineController.formCreate()}"/>
             </f:facet>
         </p:panelGrid>
     </h:form>
