@@ -53,15 +53,16 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `buscompanydb`.`bus_stop`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `buscompanydb`.`bus_stop` (
-                                                         `id` INT(11) NOT NULL AUTO_INCREMENT,
+                                                         `id`   INT(11)     NOT NULL AUTO_INCREMENT,
                                                          `name` VARCHAR(45) NOT NULL,
                                                          PRIMARY KEY (`id`),
                                                          UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
                                                          UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE
 )
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+    ENGINE = InnoDB
+    AUTO_INCREMENT = 3
+    DEFAULT CHARACTER SET = utf8mb4
+    COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -138,18 +139,19 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `buscompanydb`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `buscompanydb`.`user` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `login` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  `driver_code` VARCHAR(45) NULL DEFAULT NULL,
-  `profile` INT(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  UNIQUE INDEX `login_UNIQUE` (`login` ASC) VISIBLE,
-  INDEX `fk_user_driver_idx_idx` (`driver_code` ASC) VISIBLE,
-  CONSTRAINT `fk_user_driver_codex`
-    FOREIGN KEY (`driver_code`)
-    REFERENCES `buscompanydb`.`driver` (`code`))
+                                                     `id`        INT(11)     NOT NULL AUTO_INCREMENT,
+                                                     `login`     VARCHAR(45) NOT NULL,
+                                                     `password`  VARCHAR(45) NOT NULL,
+                                                     `driver_id` INT(11)     NULL     DEFAULT NULL,
+                                                     `profile`   INT(11)     NOT NULL DEFAULT '0',
+                                                     PRIMARY KEY (`id`),
+                                                     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+                                                     UNIQUE INDEX `login_UNIQUE` (`login` ASC) VISIBLE,
+                                                     INDEX `fk_user_driver_idx_idx` (`driver_id` ASC) VISIBLE,
+                                                     CONSTRAINT `fk_user_driver_idx`
+                                                         FOREIGN KEY (`driver_id`)
+                                                             REFERENCES `buscompanydb`.`driver` (`id`)
+)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
