@@ -12,6 +12,8 @@ import java.util.Date;
 public class DriverEntityModelConverter implements EntityModelConverter<DriverEntity, DriverModel> {
     @Override
     public DriverModel entityToModel(DriverEntity entity) throws IllegalArgumentException {
+        if (entity == null)
+            return null;
         if (entity.getBirthDate() != null && !checkValidDate(entity.getBirthDate()))
             throw new IllegalArgumentException("Birthday should be after 1900 and driver should be major");
         DriverModel model = new DriverModel();
@@ -28,6 +30,8 @@ public class DriverEntityModelConverter implements EntityModelConverter<DriverEn
 
     @Override
     public DriverEntity modelToEntity(DriverModel model) {
+        if (model == null)
+            return null;
         DriverEntity entity = new DriverEntity();
         entity.setId(model.getId());
         entity.setBirthDate(model.getBirthDate());

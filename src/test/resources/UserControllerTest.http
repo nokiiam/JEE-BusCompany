@@ -1,0 +1,85 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection).
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+# get all
+GET http://localhost:8080/MyBusCompany/api/users
+
+###
+# create line 1, should return 201
+POST http://localhost:8080/MyBusCompany/api/users
+Content-Type: application/json
+
+{
+  "login": "testttte",
+  "password": "test",
+  "profile": 0
+}
+
+> {%
+client.global.set("lastId", response.body.id);
+%}
+
+###
+# should return 409 (ressource already exist)
+POST http://localhost:8080/MyBusCompany/api/users
+Content-Type: application/json
+
+{
+  "login": "testttt",
+  "password": "test",
+  "profile": 0
+}
+
+###
+# get user created
+GET http://localhost:8080/MyBusCompany/api/users/{{lastId}}
+
+###
+# Error should return 404
+GET http://localhost:8080/MyBusCompany/api/users/404
+
+###
+# update
+PUT http://localhost:8080/MyBusCompany/api/users/{{lastId}}
+Content-Type: application/json
+
+{
+  "login": "testttt",
+  "password": "tototo",
+  "profile": 2,
+  "driverCode": "KJ2"
+}
+
+###
+# Error shoudl return 400
+PUT http://localhost:8080/MyBusCompany/api/users/{{lastId}}
+Content-Type: application/json
+
+{
+  "number": "tata"
+}
+
+###
+# Error should return 404
+PUT http://localhost:8080/MyBusCompany/api/users/404
+Content-Type: application/json
+
+{
+  "login": "testttt",
+  "password": "tototo",
+  "profile": 2,
+  "driverCode": "KJ2"
+}
+
+###
+# should delete element
+DELETE http://localhost:8080/MyBusCompany/api/users/{{lastId}}
+
+###
+# Error should return 404
+DELETE http://localhost:8080/MyBusCompany/api/users/404
+
+###
